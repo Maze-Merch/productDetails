@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --watch",
+    "build": "webpack --watch --mode development",
     "lint": "./node_modules/.bin/eslint"
   },
   "eslintConfig": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "babel-preset-airbnb": "^5.0.0",
     "debug": "^3.2.6",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "sass": "^1.26.8"
