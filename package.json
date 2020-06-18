@@ -10,6 +10,13 @@
     "build": "webpack --watch",
     "lint": "./node_modules/.bin/eslint"
   },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "es6": true
+    }
+  },
   "dependencies": {
     "babel-preset-airbnb": "^5.0.0",
     "debug": "^3.2.6",
