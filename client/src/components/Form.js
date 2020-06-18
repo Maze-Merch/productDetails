@@ -23,7 +23,7 @@ class Form extends Component {
   render() {
     return (
       <form>
-        <h1>how</h1>
+        <h1>howdy</h1>
         <input
           type="text"
           value={this.state.value}
@@ -35,4 +35,3 @@ class Form extends Component {
 }
 
 export default Form;
-
