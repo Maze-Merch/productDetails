@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 class Form extends Component {
   constructor() {
@@ -24,7 +23,7 @@ class Form extends Component {
   render() {
     return (
       <form>
-        <h1>hello</h1>
+        <h1>howdy</h1>
         <input
           type="text"
           value={this.state.value}
@@ -36,6 +35,3 @@ class Form extends Component {
 }
 
 export default Form;
-
-const wrapper = document.getElementById("container");
-wrapper ? ReactDOM.render(<Form />, wrapper) : false;
