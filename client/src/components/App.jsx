@@ -28,6 +28,7 @@ class App extends Component {
       <div>
         <form>
           <h1 className="container">Product Overview</h1>
+          <img alt="White shoes" src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" />
           <input
             type="text"
             value={value}
