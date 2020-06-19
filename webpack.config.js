@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: "./client/src/index.js",
+  entry: './client/src/index.js',
   module: {
     rules: [
       {
@@ -9,17 +9,15 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           "babel-loader"
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [
-      "*", ".js", ".jsx"
-    ]
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "bundle.js"
-  }
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
+  },
 };

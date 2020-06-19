@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "babel-preset-airbnb": "^5.0.0",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "debug": "^3.2.6",
     "express": "^4.17.1",
