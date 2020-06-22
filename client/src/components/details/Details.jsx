@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App';
+import App from '../App';
 
 const Details = ({ products }) => (
 //   <div>
@@ -13,10 +13,13 @@ const Details = ({ products }) => (
     <ul className="products">
       <li>
         <div className="product">
+          <div className="product-reviews">**** 4.5 Stars Read 9 reviews</div>
           <div className="product-category">Kicks</div>
-          <div className="product-name">Heir Force Ones</div>
-          <div className="price">$99</div>
-          <img src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="white shoes" />
+          <div className="product-name">
+            <a href="product.html">Heir Force Ones</a>
+          </div>
+          <div className="product-price">$99</div>
+          <img className="product-image" src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="white shoes" />
         </div>
       </li>
     </ul>

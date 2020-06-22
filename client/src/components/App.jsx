@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from './button/button';
-import Details from './Details';
+import Details from './details/Details';
 
 class App extends Component {
   constructor() {
@@ -53,9 +53,9 @@ class App extends Component {
     return (
       <div>
         <h1 className="container">Product Overview</h1>
-        <Button />
         {/* <Details products={products} reviews={reviews} /> */}
         <Details />
+        <Button />
       </div>
     );
   }
