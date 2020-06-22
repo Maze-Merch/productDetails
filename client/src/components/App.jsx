@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     const { reviews, products } = this.state;
-    console.log('app products', products)
+    console.log('app products', products);
 
     return (
       // <div>
