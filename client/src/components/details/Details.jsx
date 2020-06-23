@@ -30,9 +30,16 @@ class Details extends React.Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
-  // const GetProductById = (props) => {
-  //   console.log(props.match.params.id);
-  // };
+  GetProductById() {
+    const { products, match } = this.state;
+    console.log(match.params.id);
+    const product = products.find((item) => item.id === this.match.params.id);
+    return (
+      <div>
+        <h1>{product.name}</h1>
+      </div>
+    );
+  }
 
   render() {
     const { reviews, products } = this.state;
@@ -80,6 +87,7 @@ class Details extends React.Component {
 }
 
 export default Details;
+
 
 // const Details = ({ products }) => (
 // <div>
