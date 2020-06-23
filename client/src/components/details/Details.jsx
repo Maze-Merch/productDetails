@@ -1,5 +1,8 @@
-import React from "react";
-import App from "../App";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import App from '../App';
+import HomeScreen from '../Screens/HomeScreen';
+import ProductScreen from '../Screens/ProductScreen';
 
 class Details extends React.Component {
   constructor() {
@@ -31,35 +34,40 @@ class Details extends React.Component {
     const { reviews, products } = this.state;
 
     return (
-      <div className="content">
-        <ul className="products">
-          {products.map((product) => (
-            <li key={product.id}>
-              <div className="product">
-                <div className="product-reviews">
-                  **** 4.5 Stars Read {reviews.length} reviews
+      <BrowserRouter>
+        <div className="content">
+          <Route path="/products/:id" component={ProductScreen} />
+          <Route path="/" exact={true} component={HomeScreen} />
+          <ul className="products">
+            {products.map((product) => (
+              <li key={product.id}>
+                <div className="product">
+                  <div className="product-reviews">
+                    **** 4.5 Stars Read {reviews.length} reviews
+                  </div>
+                  <div className="product-category">{product.category}</div>
+                  <div className="product-name">
+                    <a href="product.html">{product.name}</a>
+                  </div>
+                  <div className="product-price">${product.default_price}</div>
+                  <img
+                    className="product-image"
+                    src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                    alt={product.name}
+                  />
                 </div>
-                <div className="product-category">{product.category}</div>
-                <div className="product-name">
-                  <a href="product.html">{product.name}</a>
-                </div>
-                <div className="product-price">
-                  $
-                  {product.default_price}
-                </div>
-                <img
-                  className="product-image"
-                  src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-                  alt={product.name}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </BrowserRouter>
     );
   }
 }
+
+const GetProductById = (props) => {
+  console.log(props.match.params.id);
+};
 
 export default Details;
 
