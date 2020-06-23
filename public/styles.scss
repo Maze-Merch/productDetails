@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 .brand a{
   color: #ffffff;
@@ -37,6 +38,11 @@ color: #ffffff;
 }
 .footer {
   grid-area: footer;
+  background-color: #141a22;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 a {
   text-decoration: none;
