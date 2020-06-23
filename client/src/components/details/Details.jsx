@@ -8,7 +8,14 @@ class Details extends React.Component {
   constructor() {
     super();
     this.state = {
-      products: [],
+      products: [{
+        id: 5,
+        name: 'Heir Force Ones',
+        slogan: 'A sneaker dynasty',
+        description: 'Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I"m just a sneaker pro, I love Pumas and shell toes, but can"t nothin compare to a fresh crispy white pearl',
+        category: 'Kicks',
+        default_price: '99',
+      }],
       reviews: [],
     };
   }
@@ -44,7 +51,6 @@ class Details extends React.Component {
   render() {
     const { reviews, products } = this.state;
     // console.log(props.match.params.id;)
-
     return (
       <BrowserRouter>
         <div className="content">
@@ -87,7 +93,6 @@ class Details extends React.Component {
 }
 
 export default Details;
-
 
 // const Details = ({ products }) => (
 // <div>
