@@ -37,13 +37,15 @@ class Details extends React.Component {
             <li key={product.id}>
               <div className="product">
                 <div className="product-reviews">
-                  **** 4.5 Stars Read 9 reviews
+                  **** 4.5 Stars Read {reviews.length} reviews
                 </div>
                 <div className="product-category">{product.category}</div>
                 <div className="product-name">
                   <a href="product.html">{product.name}</a>
                 </div>
-                <div className="product-price">${product.default_price}
+                <div className="product-price">
+                  $
+                  {product.default_price}
                 </div>
                 <img
                   className="product-image"

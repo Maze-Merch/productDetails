@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  font-size: 1.6rem Helvetica;
   height: 100vh;
   margin: 0;
 }
@@ -116,5 +115,13 @@ a:hover {
   color: #808080;
   text-decoration: underline;
   margin-bottom: 1rem;
+}
+
+.brand button {
+  font-size: 3rem;
+  padding: .5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
 }
 /*# sourceMappingURL=styles.css.map */
