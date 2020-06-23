@@ -21,22 +21,22 @@ class App extends Component {
     // this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    this.getProductData();
-    this.getReviewData();
-  }
+  // componentDidMount() {
+  //   this.getProductData();
+  //   this.getReviewData();
+  // }
 
-  getProductData() {
-    fetch('http://52.26.193.201:3000/products/list')
-      .then((res) => res.json())
-      .then((data) => this.setState({ products: data }));
-  }
+  // getProductData() {
+  //   fetch('http://52.26.193.201:3000/products/list')
+  //     .then((res) => res.json())
+  //     .then((data) => this.setState({ products: data }));
+  // }
 
-  getReviewData() {
-    fetch(' http://52.26.193.201:3000/reviews/1/list')
-      .then((res) => res.json())
-      .then((data) => this.setState({ reviews: data.results }));
-  }
+  // getReviewData() {
+  //   fetch(' http://52.26.193.201:3000/reviews/1/list')
+  //     .then((res) => res.json())
+  //     .then((data) => this.setState({ reviews: data.results }));
+  // }
 
   // handleChange(event) {
   //   const { value } = event.target;
