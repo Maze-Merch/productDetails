@@ -22,13 +22,13 @@ class Details extends React.Component {
     fetch("http://52.26.193.201:3000/products/list")
       .then((res) => res.json())
       .then((data) => this.setState({ products: data }));
-    }
+  }
 
-    getReviewData() {
-      fetch("http://52.26.193.201:3000/reviews/1/list")
+  getReviewData() {
+    fetch("http://52.26.193.201:3000/reviews/1/list")
       .then((res) => res.json())
       .then((data) => this.setState({ reviews: data.results }));
-    }
+  }
 
   // const GetProductById = (props) => {
   //   console.log(props.match.params.id);
@@ -48,13 +48,20 @@ class Details extends React.Component {
               <li key={product.id}>
                 <div className="product">
                   <div className="product-reviews">
-                    **** 4.5 Stars Read {reviews.length} reviews
+                    **** 4.5 Stars Read
+                    {' '}
+                    {reviews.length}
+                    {' '}
+                    reviews
                   </div>
                   <div className="product-category">{product.category}</div>
                   <div className="product-name">
-                    <Link to={"/product/" + product.id}>{product.name}</Link>
+                    <Link to={`/product/${product.id}`}>{product.name}</Link>
                   </div>
-                  <div className="product-price">${product.default_price}</div>
+                  <div className="product-price">
+                    $
+                    {product.default_price}
+                  </div>
                   <Link to={`/product/${product.id}`}>
                     <img
                       className="product-image"
@@ -71,7 +78,6 @@ class Details extends React.Component {
     );
   }
 }
-
 
 export default Details;
 
