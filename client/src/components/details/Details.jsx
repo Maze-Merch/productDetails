@@ -24,6 +24,7 @@ class Details extends React.Component {
   componentDidMount() {
     this.getProductData();
     this.getReviewData();
+    this.getProductImages();
   }
 
   getProductData() {
@@ -38,7 +39,7 @@ class Details extends React.Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
-  getProductImage() {
+  getProductImages() {
     fetch('http://52.26.193.201:3000/products/5/styles/')
       .then((res) => res.json())
       .then((data) => this.setState({ images: data.results }));
@@ -85,7 +86,7 @@ class Details extends React.Component {
                   <Link to={`/product/${product.id}`}>
                     <img
                       className="product-image"
-                      // src={}
+                      // src={images.photos.thumbnail_url}
                       alt={product.name}
                     />
                   </Link>
