@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './button/button';
 import Details from './details/Details';
+import Images from './images/Images';
 
 class App extends Component {
   constructor() {
@@ -55,6 +56,7 @@ class App extends Component {
         {/* <h1 className="container">Product Overview</h1> */}
         {/* <Details products={products} reviews={reviews} /> */}
         <Details />
+        <Images />
         {/* <Button /> */}
       </div>
     );

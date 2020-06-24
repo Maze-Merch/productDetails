@@ -54,7 +54,7 @@ class Details extends React.Component {
     return (
       <BrowserRouter>
         <div className="content">
-          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/products/:id" component={ProductScreen} />
           <Route path="/" exact={true} component={HomeScreen} />
           <ul className="products">
             {products.map((product) => (
@@ -75,13 +75,13 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
-                  <Link to={`/product/${product.id}`}>
+                  {/* <Link to={`/product/${product.id}`}>
                     <img
                       className="product-image"
                       src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
                       alt={product.name}
                     />
-                  </Link>
+                  </Link> */}
                 </div>
               </li>
             ))}
