@@ -75,13 +75,6 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
-                  {/* <Link to={`/product/${product.id}`}>
-                    <img
-                      className="product-image"
-                      src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-                      alt={product.name}
-                    />
-                  </Link> */}
                 </div>
               </li>
             ))}
