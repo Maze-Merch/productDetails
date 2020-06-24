@@ -56,8 +56,8 @@ class App extends Component {
       <div>
         {/* <h1 className="container">Product Overview</h1> */}
         {/* <Details products={products} reviews={reviews} /> */}
-        {/* <Details /> */}
-        <MainCarousel />
+        <Details />
+        {/* <MainCarousel /> */}
         {/* <Images /> */}
         {/* <Button /> */}
       </div>

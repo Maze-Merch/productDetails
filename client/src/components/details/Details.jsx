@@ -17,6 +17,7 @@ class Details extends React.Component {
         default_price: '99',
       }],
       reviews: [],
+      images: [],
     };
   }
 
@@ -37,6 +38,12 @@ class Details extends React.Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
+  getProductImage() {
+    fetch('http://52.26.193.201:3000/products/5/styles/')
+      .then((res) => res.json())
+      .then((data) => this.setState({ images: data.results }));
+  }
+
   GetProductById() {
     const { products, match } = this.state;
     console.log(match.params.id);
@@ -49,7 +56,7 @@ class Details extends React.Component {
   }
 
   render() {
-    const { reviews, products } = this.state;
+    const { reviews, products, images } = this.state;
     // console.log(props.match.params.id;)
     return (
       <BrowserRouter>
@@ -75,13 +82,13 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
-                  {/* <Link to={`/product/${product.id}`}>
+                  <Link to={`/product/${product.id}`}>
                     <img
                       className="product-image"
-                      src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                      // src={}
                       alt={product.name}
                     />
-                  </Link> */}
+                  </Link>
                 </div>
               </li>
             ))}
