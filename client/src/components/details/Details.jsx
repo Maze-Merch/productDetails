@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import App from "../App";
-import HomeScreen from "../Screens/HomeScreen";
-import ProductScreen from "../Screens/ProductScreen";
+import React from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import App from '../App';
+import HomeScreen from '../Screens/HomeScreen';
+import ProductScreen from '../Screens/ProductScreen';
 
 class Details extends React.Component {
   constructor() {
@@ -26,13 +26,13 @@ class Details extends React.Component {
   }
 
   getProductData() {
-    fetch("http://52.26.193.201:3000/products/list")
+    fetch('http://52.26.193.201:3000/products/list')
       .then((res) => res.json())
       .then((data) => this.setState({ products: data }));
   }
 
   getReviewData() {
-    fetch("http://52.26.193.201:3000/reviews/1/list")
+    fetch('http://52.26.193.201:3000/reviews/1/list')
       .then((res) => res.json())
       .then((data) => this.setState({ reviews: data.results }));
   }
@@ -75,6 +75,13 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
+                  {/* <Link to={`/product/${product.id}`}>
+                    <img
+                      className="product-image"
+                      src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                      alt={product.name}
+                    />
+                  </Link> */}
                 </div>
               </li>
             ))}
