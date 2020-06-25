@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import Button from './button/button';
-import Details from './details/Details';
-import Images from './images/Images';
-import MainCarousel from './carousel/MainCarousel';
+import React, { Component } from "react";
+import { Button } from "react-bootstrap";
+// import Button from "./button/button";
+import Details from "./details/Details";
+// import Images from "./images/Images";
+import MainCarousel from "./carousel/MainCarousel";
 
 class App extends Component {
   constructor() {
@@ -32,8 +33,8 @@ class App extends Component {
       <div>
         {/* <h1 className="container">Product Overview</h1> */}
         {/* <Details products={products} reviews={reviews} /> */}
+        <MainCarousel />
         <Details />
-        {/* <MainCarousel /> */}
         {/* <Images /> */}
         {/* <Button /> */}
       </div>
