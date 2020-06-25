@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import Details from "./details/Details";
 // import Images from "./images/Images";
 import MainCarousel from "./carousel/MainCarousel";
+import Images from "./images/Images";
 
 class App extends Component {
   constructor() {
@@ -30,13 +31,29 @@ class App extends Component {
     const { reviews, products } = this.state;
 
     return (
-      <div>
-        {/* <h1 className="container">Product Overview</h1> */}
-        {/* <Details products={products} reviews={reviews} /> */}
-        <MainCarousel />
-        <Details />
-        {/* <Images /> */}
-        {/* <Button /> */}
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            Photos
+          </div>
+          <div className="col-6">
+            <MainCarousel />
+          </div>
+          <div className="col">
+            {/* <Details /> */}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            Empty
+          </div>
+          <div className="col-6">
+            <Images />
+          </div>
+          <div className="col">
+            Optional check-list
+          </div>
+        </div>
       </div>
     );
   }

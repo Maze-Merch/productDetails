@@ -3,9 +3,10 @@ import React from "react";
 const MainCarousel = () => {
   return (
     <div
-      id="carouselExampleControls"
-      className="carousel slide"
-      data-ride="carousel"
+      id="mainCarousel"
+      className="col-7 carousel slide"
+      data-ride="false"
+      data-touch="true"
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -32,20 +33,20 @@ const MainCarousel = () => {
       </div>
       <a
         className="carousel-control-prev"
-        href="#carouselExampleControls"
+        href="#mainCarousel"
         role="button"
         data-slide="prev"
       >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="carousel-control-prev-icon" aria-hidden="true" />
         <span className="sr-only">Previous</span>
       </a>
       <a
         className="carousel-control-next"
-        href="#carouselExampleControls"
+        href="#mainCarousel"
         role="button"
         data-slide="next"
       >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="sr-only">Next</span>
       </a>
     </div>
