@@ -38,7 +38,7 @@ class Images extends React.Component {
     return (
       <div>
         {/* <img src={products[0].photos[0].thumbnail_url} alt="white shoes" /> */}
-        <h1>{description[0].slogan}</h1>
+        <h4>{description[0].slogan}</h4>
         <p>{description[0].description}</p>
       </div>
     );

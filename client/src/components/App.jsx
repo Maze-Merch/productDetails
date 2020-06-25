@@ -65,11 +65,34 @@ class App extends Component {
   }
 
   render() {
-    const { reviews, products, results, activeResult } = this.state;
-console.log( activeResult, results )
+    const {
+      reviews, products, results, activeResult,
+    } = this.state;
+console.log("activeResult", activeResult, 'results', results);
     return (
       <div className="container">
-        <MainCarousel photos={activeResult.photos}/>
+        <div className="row">
+          <div className="col">
+            Photos
+          </div>
+          <div className="col-6">
+            <MainCarousel photos={activeResult.photos} />
+          </div>
+          <div className="col">
+            {/* <Details /> */}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            Empty
+          </div>
+          <div className="col-6">
+            <Images />
+          </div>
+          <div className="col">
+            Optional check-list
+          </div>
+        </div>
       </div>
     );
   }
@@ -90,26 +113,3 @@ export default App;
 //   onChange={this.handleChange}
 // /> */}
 // {/* </form> */}
-
-        // <div className="row">
-        //   <div className="col">
-        //     Photos
-        //   </div>
-        //   <div className="col-6">
-        //     <MainCarousel />
-        //   </div>
-        //   <div className="col">
-        //     {/* <Details /> */}
-        //   </div>
-        // </div>
-        // <div className="row">
-        //   <div className="col">
-        //     Empty
-        //   </div>
-        //   <div className="col-6">
-        //     <Images />
-        //   </div>
-        //   <div className="col">
-        //     Optional check-list
-        //   </div>
-        // </div>

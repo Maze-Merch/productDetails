@@ -1,7 +1,7 @@
 import React from "react";
 
-const MainCarousel = (props) => {
-  console.log(props)
+const MainCarousel = ({photos}) => {
+  console.log('mc props', photos);
   return (
     <div
       id="mainCarousel"
@@ -10,16 +10,18 @@ const MainCarousel = (props) => {
       data-touch="true"
     >
       <div className="carousel-inner">
-      {props.photos &&
-      props.photos.map((photo, i) => {
-        return (<div key={i} className="carousel-item active">
-          <img
-            className="d-block w-100"
-            src={photo.url}
-            alt="First slide"
-          />
-        </div>);
-      })}
+        {photos
+        && photos.map((photo, i) => {
+          return (
+            <div key={i} className="carousel-item active">
+              <img
+                className="d-block w-100"
+                src={photo.url}
+                alt="slide"
+              />
+            </div>
+          );
+        })}
       </div>
       <a
         className="carousel-control-prev"
