@@ -76,7 +76,7 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
-                  {/* {images.map((image) => (
+                  {images.map((image) => (
                     <ul key={image.url}>
                       <Link to={`/product/${product.id}`}>
                         <img
@@ -86,7 +86,7 @@ class Details extends React.Component {
                         />
                       </Link>
                     </ul>
-                  ))} */}
+                  ))}
                   <div className="product-slogan">{product.slogan}</div>
                   <div className="product-description">{product.description}</div>
                 </div>
