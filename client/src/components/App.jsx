@@ -9,36 +9,12 @@ class App extends Component {
     super();
 
     this.state = {
-      products: [{
-        id: 5,
-        name: 'Heir Force Ones',
-        slogan: 'A sneaker dynasty',
-        description: 'Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I"m just a sneaker pro, I love Pumas and shell toes, but can"t nothin compare to a fresh crispy white pearl',
-        category: 'Kicks',
-        default_price: '99',
-      }],
+      products: [],
       reviews: [],
     };
 
     // this.handleChange = this.handleChange.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.getProductData();
-  //   this.getReviewData();
-  // }
-
-  // getProductData() {
-  //   fetch('http://52.26.193.201:3000/products/list')
-  //     .then((res) => res.json())
-  //     .then((data) => this.setState({ products: data }));
-  // }
-
-  // getReviewData() {
-  //   fetch(' http://52.26.193.201:3000/reviews/1/list')
-  //     .then((res) => res.json())
-  //     .then((data) => this.setState({ reviews: data.results }));
-  // }
 
   // handleChange(event) {
   //   const { value } = event.target;
