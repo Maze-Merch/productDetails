@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-// import Button from "./button/button";
 import ProductDetails from './ProductDetails';
-// import Images from "./images/Images";
 import MainCarousel from './carousel/MainCarousel';
-import Images from './images/Images';
+import Description from './Description';
 import Thumbnails from './Thumbnails';
 import Checklist from './Checklist';
 
@@ -57,7 +54,7 @@ class App extends Component {
 
   GetProductById() {
     const { products, match } = this.state;
-    console.log(match.params.id);
+    // console.log(match.params.id);
     const product = products.find((item) => item.id === this.match.params.id);
     return (
       <div>
@@ -70,7 +67,7 @@ class App extends Component {
     const {
       reviews, products, results, activeResult,
     } = this.state;
-    console.log('app activeResult', activeResult.photos, 'results', results);
+    console.log('app activeResult', activeResult, 'results', results);
     return (
       <div className="container-fluid">
         <div className="jumbotron jumbotron-fluid">
@@ -83,22 +80,20 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-1">
             <Thumbnails photos={activeResult.photos} />
           </div>
-          <div className="col-6">
+          <div className="col-7">
             <MainCarousel photos={activeResult.photos} />
           </div>
           <div className="col">
-            <ProductDetails products={products} reviews={reviews} />
+            <ProductDetails products={products} reviews={reviews} result={activeResult} photos={activeResult.photos} results={results} />
           </div>
         </div>
         <div className="row">
-          <div className="col">
-            Empty
-          </div>
-          <div className="col-6">
-            <Images />
+          <div className="col-1" />
+          <div className="col-7">
+            <Description products={products} />
           </div>
           <div className="col">
             <Checklist />

@@ -1,18 +1,18 @@
 import React from "react";
 
 const Thumbnails = ({ photos }) => {
-  console.log("mc props", photos);
+  // console.log("mc props", photos);
   return (
     <div>
       {photos &&
         photos.map((photo, i) => (
-          <div key={i} className="product-detail-img">
-            {i < 5 ? (
-              <div className="product-detail-img">
-                <button type="button" className="btn-reset product-detail-button" aria-current="true">
+          <div key={i} className="row mt-2">
+            {i < 7 ? (
+              <div className="my-auto">
+                <button type="button" className="btn-reset">
                   <img
-                    // width="100"
-                    // height="100"
+                    width="100res"
+                    height="100res"
                     src={photo.thumbnail_url}
                     alt="white shoes"
                   />
