@@ -6,21 +6,19 @@ const ProductDetails = ({ reviews, products }) => {
   console.log("products", reviews);
   return (
     <div className="product">
-      <div className="product-reviews">
+      <h6 className="product-reviews">
         **** 4.5 Stars Read
         {' '}
         {reviews.length}
         {' '}
         reviews
-      </div>
-      <h4 className="product-category">{products.category}</h4>
-      <h2 className="product-name">
-        {/* <Link to={`/product/${products.id}`}>{products.name}</Link> */}
-      </h2>
-      <h4 className="product-price">
+      </h6>
+      <h5 className="lead">{products.category}</h5>
+      <h1 className="product-name">{products.name}</h1>
+      <h5 className="lead">
         $
         {products.default_price}
-      </h4>
+      </h5>
     </div>
   );
 };

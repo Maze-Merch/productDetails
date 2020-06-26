@@ -72,7 +72,16 @@ class App extends Component {
     } = this.state;
     console.log('app activeResult', activeResult.photos, 'results', results);
     return (
-      <div className="container">
+      <div className="container-fluid">
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container-fluid">
+            {/* <h1 className="display-4">maze mercantile</h1> */}
+            <p className="lead text-center">
+              <strong>Save Up to 40% Off in the </strong>
+              Summer Solstice Sale
+            </p>
+          </div>
+        </div>
         <div className="row">
           <div className="col">
             <Thumbnails photos={activeResult.photos} />
