@@ -5,6 +5,8 @@ import Details from "./details/Details";
 // import Images from "./images/Images";
 import MainCarousel from "./carousel/MainCarousel";
 import Images from "./images/Images";
+import Thumbnails from './Thumbnails';
+import Checklist from './Checklist';
 
 class App extends Component {
   constructor() {
@@ -68,18 +70,18 @@ class App extends Component {
     const {
       reviews, products, results, activeResult,
     } = this.state;
-console.log("activeResult", activeResult, 'results', results);
+console.log("app activeResult", activeResult.photos, 'results', results);
     return (
       <div className="container">
         <div className="row">
           <div className="col">
-            Photos
+            <Thumbnails photos={activeResult.photos} />
           </div>
           <div className="col-6">
             <MainCarousel photos={activeResult.photos} />
           </div>
           <div className="col">
-            {/* <Details /> */}
+            <Details />
           </div>
         </div>
         <div className="row">
@@ -90,7 +92,7 @@ console.log("activeResult", activeResult, 'results', results);
             <Images />
           </div>
           <div className="col">
-            Optional check-list
+            <Checklist />
           </div>
         </div>
       </div>
