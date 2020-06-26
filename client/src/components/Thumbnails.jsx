@@ -1,20 +1,26 @@
 import React from "react";
 
 const Thumbnails = ({ photos }) => {
-  console.log('mc props', photos);
+  console.log("mc props", photos);
   return (
     <div>
-      {photos
-      && photos.map((photo, i) => (
-        <div key={i} className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src={photo.thumbnail_url}
-              alt="white shoes"
-            />
+      {photos &&
+        photos.map((photo, i) => (
+          <div key={i} className="carousel-inner">
+            {i < 5 ? (
+              <div className="carousel-item active">
+                <img
+                  width="100"
+                  height="100"
+                  src={photo.thumbnail_url}
+                  alt="white shoes"
+                />
+              </div>
+            ) : (
+              null
+            )}
           </div>
-        </div>
-      ))}
+        ))}
       <a
         className="carousel-control-prev"
         href="#mainCarousel"

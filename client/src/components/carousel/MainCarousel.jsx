@@ -1,23 +1,40 @@
 import React from "react";
 
-const MainCarousel = ({ photos }) => {
-  console.log('mc props', photos);
-  return (
+const MainCarousel = ({ photos }) => (
+  // console.log('mc props', photos);
+  (
     <div
       id="mainCarousel"
       className="carousel slide"
-      data-ride="false"
+      data-ride="carousel"
       data-touch="true"
     >
       <div className="carousel-inner">
         {photos
         && photos.map((photo, i) => (
-          <div key={i} className="carousel-item active">
-            <img
-              className="d-block w-100"
-              src={photo.url}
-              alt="slide"
-            />
+          <div key={i}>
+            {i === 0
+              ? (
+                <div className="carousel-item active">
+                  <img
+                    // width="1000"
+                    // height="1000"
+                    className="d-block w-100"
+                    src={photo.url}
+                    alt="slide"
+                  />
+                </div>
+              ) : (
+                <div className="carousel-item">
+                  <img
+                    // width="1000"
+                    // height="1000"
+                    className="d-block w-100"
+                    src={photo.url}
+                    alt="slide"
+                  />
+                </div>
+              )}
           </div>
         ))}
       </div>
@@ -40,7 +57,7 @@ const MainCarousel = ({ photos }) => {
         <span className="sr-only">Next</span>
       </a>
     </div>
-  );
-};
+  )
+);
 
 export default MainCarousel;

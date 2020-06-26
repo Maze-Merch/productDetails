@@ -40,7 +40,7 @@ class Details extends React.Component {
 
   GetProductById() {
     const { products, match } = this.state;
-    console.log(match.params.id);
+    console.log('params id', match.params.id);
     const product = products.find((item) => item.id === this.match.params.id);
     return (
       <div>
@@ -76,7 +76,7 @@ class Details extends React.Component {
                     $
                     {product.default_price}
                   </div>
-                  {/* {images.map((image) => (
+                  {images.map((image) => (
                     <ul key={image.url}>
                       <Link to={`/product/${product.id}`}>
                         <img
@@ -88,7 +88,7 @@ class Details extends React.Component {
                     </ul>
                   ))}
                   <div className="product-slogan">{product.slogan}</div>
-                  <div className="product-description">{product.description}</div> */}
+                  <div className="product-description">{product.description}</div>
                 </div>
               </li>
             ))}

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 // import Button from "./button/button";
-import Details from "./details/Details";
+import ProductDetails from './ProductDetails';
 // import Images from "./images/Images";
-import MainCarousel from "./carousel/MainCarousel";
-import Images from "./images/Images";
+import MainCarousel from './carousel/MainCarousel';
+import Images from './images/Images';
 import Thumbnails from './Thumbnails';
 import Checklist from './Checklist';
 
@@ -40,11 +40,11 @@ class App extends Component {
   getProductData() {
     fetch('http://52.26.193.201:3000/products/list')
       .then((res) => res.json())
-      .then((data) => this.setState({ products: data }));
+      .then((data) => this.setState({ products: data[4] }));
   }
 
   getReviewData() {
-    fetch('http://52.26.193.201:3000/reviews/1/list')
+    fetch('http://52.26.193.201:3000/reviews/5/list')
       .then((res) => res.json())
       .then((data) => this.setState({ reviews: data.results }));
   }
@@ -70,7 +70,7 @@ class App extends Component {
     const {
       reviews, products, results, activeResult,
     } = this.state;
-console.log("app activeResult", activeResult.photos, 'results', results);
+    console.log('app activeResult', activeResult.photos, 'results', results);
     return (
       <div className="container">
         <div className="row">
@@ -81,7 +81,7 @@ console.log("app activeResult", activeResult.photos, 'results', results);
             <MainCarousel photos={activeResult.photos} />
           </div>
           <div className="col">
-            <Details />
+            <ProductDetails products={products} reviews={reviews} />
           </div>
         </div>
         <div className="row">
