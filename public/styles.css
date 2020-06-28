@@ -5,4 +5,8 @@ footer img {
 footer {
   border-top: inset;
 }
+
+.carousel-inner {
+  height: 50vh;
+}
 /*# sourceMappingURL=styles.css.map */

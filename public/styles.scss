@@ -105,9 +105,6 @@ footer img {
 footer {
   border-top: inset;
 }
-@media (max-width: 900px) {
-    .carousel {
-      width:auto;
-      height:auto;
-    }
+.carousel-inner {
+  height: 50vh;
 }
