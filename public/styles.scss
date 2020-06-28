@@ -99,3 +99,15 @@
 //   border: none;
 //   color: #ffffff;
 // }
+footer img {
+  height: 200px;
+}
+footer {
+  border-top: inset;
+}
+@media (max-width: 900px) {
+    .carousel {
+      width:auto;
+      height:auto;
+    }
+}
