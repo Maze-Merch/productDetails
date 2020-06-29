@@ -107,49 +107,50 @@ class App extends Component {
     );
     return (
       <Router>
-      <div className="container-fluid mb-5">
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container-fluid">
-            {/* <h1 className="display-4">maze mercantile</h1> */}
-            <p onClick={this.handleChange} className="lead text-center">
-              <strong>Save Up to 40% Off in the </strong>
-              Summer Solstice Sale
-            </p>
+        <div className="container-fluid mb-5">
+          <div className="jumbotron jumbotron-fluid">
+            <div className="container-fluid">
+              <p className="lead text-center">
+                <strong>Save Up to 40% Off in the </strong>
+                Summer Solstice Sale
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Thumbnails photos={activeResult.photos} />
+            </div>
+            <div className="col-7">
+              <MainCarousel photos={activeResult.photos} />
+            </div>
+            <div className="col-2.5">
+              <ProductDetails
+                products={products}
+                reviews={reviews}
+                activeResult={activeResult}
+                results={results}
+                styles={styles}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-1" />
+            <div className="col-7 mt-5">
+              <Description products={products} />
+            </div>
+            <div className="col mt-5">
+              <Checklist />
+            </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <Thumbnails photos={activeResult.photos} />
-          </div>
-          <div className="col-7">
-            <MainCarousel photos={activeResult.photos} />
-          </div>
-          <div className="col-2.5">
-            <ProductDetails
-              products={products}
-              reviews={reviews}
-              result={activeResult}
-              results={results}
-              styles={styles}
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-1" />
-          <div className="col-7 mt-5">
-            <Description products={products} />
-          </div>
-          <div className="col mt-5">
-            <Checklist />
-          </div>
-        </div>
-      </div>
       </Router>
     );
   }
 }
 
 export default App;
+
+// onClick={this.handleChange}
 
 // {/* <form> */}
 // {/* <input

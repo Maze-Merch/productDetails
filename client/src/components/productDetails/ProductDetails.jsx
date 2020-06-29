@@ -3,7 +3,7 @@ import React from 'react';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const ProductDetails = ({
-  reviews, products, result, results, styles,
+  reviews, products, results, styles, activeResult
 }) =>
   // console.log(props.match.params.id;)
   // getStyles(productsObject) {
@@ -30,7 +30,7 @@ const ProductDetails = ({
       </h5>
       <h5 className="text-muted">
         <strong>{'STYLE >  '}</strong>
-        {result.name}
+        {activeResult.name}
       </h5>
       {styles
         && styles.map((photo, i) => (
