@@ -1,61 +1,147 @@
 import React, { Component } from 'react';
-import Button from './button/button';
-import Details from './details/Details';
+import ProductDetails from './productDetails/ProductDetails';
+import MainCarousel from './carousel/MainCarousel';
+import Description from './Description';
+import Thumbnails from './Thumbnails';
+import Checklist from './Checklist';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      products: [{
-        id: 5,
-        name: 'Heir Force Ones',
-        slogan: 'A sneaker dynasty',
-        description: 'Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I"m just a sneaker pro, I love Pumas and shell toes, but can"t nothin compare to a fresh crispy white pearl',
-        category: 'Kicks',
-        default_price: '99',
-      }],
+      products: [],
       reviews: [],
+      results: [],
+      activeResult: [],
+      stylesArray: [],
+      currentStyle: 0,
     };
 
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.getProductData();
-  //   this.getReviewData();
-  // }
+  componentDidMount() {
+    this.getProductData();
+    this.getReviewData();
+    this.getProductImages();
+  }
 
-  // getProductData() {
-  //   fetch('http://52.26.193.201:3000/products/list')
-  //     .then((res) => res.json())
-  //     .then((data) => this.setState({ products: data }));
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    const { results, activeResult } = this.state;
+    if (prevState.results !== results) {
+      this.getStyles(results);
+    }
+    // if (prevState.activeResult !== activeResult) {
+    //   this.getProductImages()
+    // }
+  }
 
-  // getReviewData() {
-  //   fetch(' http://52.26.193.201:3000/reviews/1/list')
-  //     .then((res) => res.json())
-  //     .then((data) => this.setState({ reviews: data.results }));
-  // }
+  getProductData() {
+    fetch('http://52.26.193.201:3000/products/list')
+      .then((res) => res.json())
+      .then((data) => this.setState({ products: data[4] }));
+  }
 
-  // handleChange(event) {
-  //   const { value } = event.target;
-  //   this.setState(() => (
-  //     {
-  //       value,
-  //     }
-  //   ));
-  // }
+  getReviewData() {
+    fetch('http://52.26.193.201:3000/reviews/5/list')
+      .then((res) => res.json())
+      .then((data) => this.setState({ reviews: data.results }));
+  }
 
-  render() {
-    const { reviews, products } = this.state;
+  getProductImages() { // id could live in (params)
+    const { currentStyle } = this.state;
+    fetch('http://52.26.193.201:3000/products/5/styles/')
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log('e', data);
+        this.setState({
+          results: data.results, activeResult: data.results[currentStyle],
+        }); // ${id} adust to styles with getprodbyid
+      });
+  }
 
+  getStyles() {
+    const { results } = this.state;
+    const stylesArray = [];
+    // const style_id = 0;
+    results.map((firstPhoto) => {
+      const styles = {
+        style_id: firstPhoto.style_id,
+        photos: firstPhoto.photos[0],
+      };
+      stylesArray.push(styles);
+    });
+    this.setState({ stylesArray });
+  }
+
+  GetProductById() {
+    const { products, match } = this.state;
+    // console.log(match.params.id);
+    const product = products.find((item) => item.id === this.match.params.id);
     return (
       <div>
-        {/* <h1 className="container">Product Overview</h1> */}
-        {/* <Details products={products} reviews={reviews} /> */}
-        <Details />
-        <Button />
+        <h1>{product.name}</h1>
+      </div>
+    );
+  }
+
+  handleChange(event) {
+    // const { activeResult } = event.target.value;
+    event.preventDefault();
+    alert('Clicked');
+    this.setState(this.getProductById);
+  }
+
+  render() {
+    const {
+      reviews, products, results, activeResult, stylesArray,
+    } = this.state;
+    // console.log("products", getStyles(results));
+    console.log(
+      'app activeResult',
+      activeResult,
+      'results',
+      results,
+      'styles',
+      stylesArray,
+    );
+    return (
+      <div className="container-fluid mb-5">
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container-fluid">
+            <p className="lead text-center">
+              <strong>Save Up to 40% Off in the </strong>
+              Summer Solstice Sale
+            </p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <Thumbnails photos={activeResult.photos} />
+          </div>
+          <div className="col-7">
+            <MainCarousel photos={activeResult.photos} />
+          </div>
+          <div className="col-2.5">
+            <ProductDetails
+              products={products}
+              reviews={reviews}
+              activeResult={activeResult}
+              results={results}
+              styles={stylesArray}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-1" />
+          <div className="col-7 mt-5">
+            <Description products={products} />
+          </div>
+          <div className="col mt-5">
+            <Checklist />
+          </div>
+        </div>
       </div>
     );
   }
@@ -63,11 +149,7 @@ class App extends Component {
 
 export default App;
 
-// <img alt="White shoes" src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" />
-
-// <div>
-//   <a className="header-logo" href="https://cdn.discordapp.com/attachments/722563828285440133/722566216157495317/Maze_Merchantile.png" />
-// </div>
+// onClick={this.handleChange}
 
 // {/* <form> */}
 // {/* <input
