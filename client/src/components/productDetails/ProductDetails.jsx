@@ -26,16 +26,16 @@ const ProductDetails = ({
       <h1 className="product-name">{products.name}</h1>
       <h5 className="lead text-muted">
         $
-        {products.default_price}
+        {activeResult.sale_price > 0 ? activeResult.sale_price : activeResult.original_price}
       </h5>
       <h5 className="text-muted">
         <strong>{'STYLE >  '}</strong>
         {activeResult.name}
       </h5>
       {styles
-        && styles.map((photo, i) => (
+        && styles.map((style, i) => (
           <div
-            key={i}
+            key={style.style_id}
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
           "
           >
@@ -44,7 +44,7 @@ const ProductDetails = ({
                 // onClick={}
                 width="100res"
                 height="100res"
-                src={photo.thumbnail_url}
+                src={style.photos.thumbnail_url}
                 className="rounded-circle"
                 alt="white shoes"
               />

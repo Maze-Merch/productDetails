@@ -19,7 +19,7 @@ class App extends Component {
       reviews: [],
       results: [],
       activeResult: [],
-      styles: [],
+      stylesArray: [],
       currentStyle: 0,
     };
 
@@ -68,11 +68,17 @@ class App extends Component {
 
   getStyles() {
     const { results } = this.state;
-    const styles = [];
-    results.map((first) => styles.push(first.photos[0]));
-    this.setState({ styles });
+    const stylesArray = [];
+    // const style_id = 0;
+    results.map((firstPhoto) => {
+      const styles = {
+        style_id: firstPhoto.style_id,
+        photos: firstPhoto.photos[0],
+      };
+      stylesArray.push(styles);
+    });
+    this.setState({ stylesArray });
   }
-
 
   GetProductById() {
     const { products, match } = this.state;
@@ -94,7 +100,7 @@ class App extends Component {
 
   render() {
     const {
-      reviews, products, results, activeResult, styles,
+      reviews, products, results, activeResult, stylesArray,
     } = this.state;
     // console.log("products", getStyles(results));
     console.log(
@@ -103,7 +109,7 @@ class App extends Component {
       'results',
       results,
       'styles',
-      styles,
+      stylesArray,
     );
     return (
       <Router>
@@ -129,7 +135,7 @@ class App extends Component {
                 reviews={reviews}
                 activeResult={activeResult}
                 results={results}
-                styles={styles}
+                styles={stylesArray}
               />
             </div>
           </div>
