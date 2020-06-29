@@ -32,9 +32,9 @@ class App extends Component {
     if (prevState.results !== results) {
       this.getStyles(results);
     }
-    if (prevState.activeResult !== activeResult) {
-      this.getProductImages()
-    }
+    // if (prevState.activeResult !== activeResult) {
+    //   this.getProductImages()
+    // }
   }
 
   getProductData() {
