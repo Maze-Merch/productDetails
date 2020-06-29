@@ -1,6 +1,5 @@
 import React from 'react';
 // import './ProductDetails.css';
-// import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const ProductDetails = ({
   reviews, products, results, styles, activeResult
@@ -53,63 +52,27 @@ const ProductDetails = ({
         ))}
       <div className="container-fluid">
         <div className="d-flex flex-row">
-          <div
-            className="col-8 dropdown  mt-4
-           mr-auto"
+          <select className="col-8 dropdown  mt-4
+           mr-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
           >
-            <button
-              className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="true"
-            >
-              SELECT SIZE
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </div>
-          </div>
-          <div
-            className="col-4 dropdown  mt-4
-           mr-auto"
+            <option value="">SELECT SIZE</option>
+            <option value="">SM</option>
+            <option value="">MD</option>
+            <option value="">LG</option>
+          </select>
+          <select className="col-3 dropdown  mt-4
+           ml-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
           >
-            <button
-              className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              1
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </div>
-          </div>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+          </select>
         </div>
         <div className="d-flex flex-row">
           <div
             className="col-10 mt-4
-           mr-auto"
+           mr-2 pl-0"
           >
             <button
               className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left"
@@ -121,7 +84,7 @@ const ProductDetails = ({
           </div>
           <div
             className="col-2.5 mt-4
-           mr-auto"
+           ml-2"
           >
             <button
               className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left"

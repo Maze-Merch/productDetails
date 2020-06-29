@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom';
 import ProductDetails from './productDetails/ProductDetails';
 import MainCarousel from './carousel/MainCarousel';
 import Description from './Description';
@@ -112,44 +107,42 @@ class App extends Component {
       stylesArray,
     );
     return (
-      <Router>
-        <div className="container-fluid mb-5">
-          <div className="jumbotron jumbotron-fluid">
-            <div className="container-fluid">
-              <p className="lead text-center">
-                <strong>Save Up to 40% Off in the </strong>
-                Summer Solstice Sale
-              </p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <Thumbnails photos={activeResult.photos} />
-            </div>
-            <div className="col-7">
-              <MainCarousel photos={activeResult.photos} />
-            </div>
-            <div className="col-2.5">
-              <ProductDetails
-                products={products}
-                reviews={reviews}
-                activeResult={activeResult}
-                results={results}
-                styles={stylesArray}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-1" />
-            <div className="col-7 mt-5">
-              <Description products={products} />
-            </div>
-            <div className="col mt-5">
-              <Checklist />
-            </div>
+      <div className="container-fluid mb-5">
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container-fluid">
+            <p className="lead text-center">
+              <strong>Save Up to 40% Off in the </strong>
+              Summer Solstice Sale
+            </p>
           </div>
         </div>
-      </Router>
+        <div className="row">
+          <div className="col">
+            <Thumbnails photos={activeResult.photos} />
+          </div>
+          <div className="col-7">
+            <MainCarousel photos={activeResult.photos} />
+          </div>
+          <div className="col-2.5">
+            <ProductDetails
+              products={products}
+              reviews={reviews}
+              activeResult={activeResult}
+              results={results}
+              styles={stylesArray}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-1" />
+          <div className="col-7 mt-5">
+            <Description products={products} />
+          </div>
+          <div className="col mt-5">
+            <Checklist />
+          </div>
+        </div>
+      </div>
     );
   }
 }
