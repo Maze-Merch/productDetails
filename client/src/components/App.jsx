@@ -15,6 +15,7 @@ class App extends Component {
       results: [],
       activeResult: [],
       styles: [],
+      currentStyle: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,9 +28,12 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { results } = this.state;
+    const { results, activeResult } = this.state;
     if (prevState.results !== results) {
       this.getStyles(results);
+    }
+    if (prevState.activeResult !== activeResult) {
+      this.getProductImages()
     }
   }
 
@@ -45,12 +49,15 @@ class App extends Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
-  getProductImages() {
+  getProductImages() { // id could live in (params)
+    const { currentStyle } = this.state;
     fetch('http://52.26.193.201:3000/products/5/styles/')
       .then((res) => res.json())
       .then((data) => {
         console.log('e', data);
-        this.setState({ results: data.results, activeResult: data.results[0] });
+        this.setState({
+          results: data.results, activeResult: data.results[currentStyle],
+        }); // ${id} adust to styles with getprodbyid
       });
   }
 
