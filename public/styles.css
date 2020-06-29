@@ -2,11 +2,7 @@ footer img {
   height: 200px;
 }
 
-footer {
-  border-top: inset;
-}
-
 .carousel-inner {
-  height: 50vh;
+  height: 45vh;
 }
 /*# sourceMappingURL=styles.css.map */

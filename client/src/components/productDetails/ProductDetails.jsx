@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
 // import './ProductDetails.css';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-const ProductDetails = ({ reviews, products, result, photos, results }) => {
+const ProductDetails = ({
+  reviews, products, result, results, styles,
+}) =>
   // console.log(props.match.params.id;)
   // getStyles(productsObject) {
   //   let styles = [];
@@ -13,7 +15,7 @@ const ProductDetails = ({ reviews, products, result, photos, results }) => {
   // }
   // console.log("products", getStyles(results));
   // const productStyles = getStyles(result)
-  return (
+  (
     <div className="product">
       <h6 className="product-reviews">
         **** 4.5 Stars Read
@@ -22,13 +24,16 @@ const ProductDetails = ({ reviews, products, result, photos, results }) => {
       </h6>
       <h5 className="lead text-muted">{products.category}</h5>
       <h1 className="product-name">{products.name}</h1>
-      <h5 className="lead text-muted">${products.default_price}</h5>
+      <h5 className="lead text-muted">
+        $
+        {products.default_price}
+      </h5>
       <h5 className="text-muted">
-        <strong>{"STYLE >  "}</strong>
+        <strong>{'STYLE >  '}</strong>
         {result.name}
       </h5>
-      {photos &&
-        photos.map((photo, i) => (
+      {styles
+        && styles.map((photo, i) => (
           <div
             key={i}
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
@@ -37,9 +42,10 @@ const ProductDetails = ({ reviews, products, result, photos, results }) => {
             {i < results.length ? (
               <div className="col">
                 <img
+                  // onClick={}
                   width="100res"
                   height="100res"
-                  src={photo.thumbnail_url}
+                  src={photo}
                   className="rounded-circle"
                   alt="white shoes"
                 />
@@ -146,6 +152,4 @@ const ProductDetails = ({ reviews, products, result, photos, results }) => {
       </div>
     </div>
   );
-};
-
 export default ProductDetails;
