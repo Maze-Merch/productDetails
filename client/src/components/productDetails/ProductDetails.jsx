@@ -39,18 +39,16 @@ const ProductDetails = ({
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
           "
           >
-            {i < results.length ? (
-              <div className="col">
-                <img
-                  // onClick={}
-                  width="100res"
-                  height="100res"
-                  src={photo}
-                  className="rounded-circle"
-                  alt="white shoes"
-                />
-              </div>
-            ) : null}
+            <div className="col">
+              <img
+                // onClick={}
+                width="100res"
+                height="100res"
+                src={photo.thumbnail_url}
+                className="rounded-circle"
+                alt="white shoes"
+              />
+            </div>
           </div>
         ))}
       <div className="container-fluid">

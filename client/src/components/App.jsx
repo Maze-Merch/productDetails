@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+} from 'react-router-dom';
 import ProductDetails from './productDetails/ProductDetails';
 import MainCarousel from './carousel/MainCarousel';
 import Description from './Description';
@@ -54,7 +59,7 @@ class App extends Component {
     fetch('http://52.26.193.201:3000/products/5/styles/')
       .then((res) => res.json())
       .then((data) => {
-        console.log('e', data);
+        // console.log('e', data);
         this.setState({
           results: data.results, activeResult: data.results[currentStyle],
         }); // ${id} adust to styles with getprodbyid
@@ -64,16 +69,10 @@ class App extends Component {
   getStyles() {
     const { results } = this.state;
     const styles = [];
-    results.map((first) => styles.push(first.photos[0].thumbnail_url));
+    results.map((first) => styles.push(first.photos[0]));
     this.setState({ styles });
   }
 
-  handleChange(event) {
-    // const { activeResult } = event.target.value;
-    event.preventDefault();
-    // this.setState(getProductById)
-    alert('Clicked')
-  }
 
   GetProductById() {
     const { products, match } = this.state;
@@ -84,6 +83,13 @@ class App extends Component {
         <h1>{product.name}</h1>
       </div>
     );
+  }
+
+  handleChange(event) {
+    // const { activeResult } = event.target.value;
+    event.preventDefault();
+    alert('Clicked');
+    this.setState(this.getProductById);
   }
 
   render() {
@@ -100,6 +106,7 @@ class App extends Component {
       styles,
     );
     return (
+      <Router>
       <div className="container-fluid mb-5">
         <div className="jumbotron jumbotron-fluid">
           <div className="container-fluid">
@@ -137,6 +144,7 @@ class App extends Component {
           </div>
         </div>
       </div>
+      </Router>
     );
   }
 }
