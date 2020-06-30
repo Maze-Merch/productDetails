@@ -16,7 +16,7 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 2,
-      currentProduct: 4,
+      currentProduct: 5,
     };
 
     this.handleChange = this.handleChange.bind(this);
