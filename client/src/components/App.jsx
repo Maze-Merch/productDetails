@@ -15,7 +15,7 @@ class App extends Component {
       results: [],
       activeResult: [],
       stylesArray: [],
-      currentStyle: 2,
+      currentStyle: 0,
       currentProduct: 5,
     };
 
@@ -127,7 +127,7 @@ class App extends Component {
           <div className="col">
             <MainCarousel photos={activeResult.photos} />
           </div>
-          <div className="col-2.5">
+          <div className="col-3">
             <ProductDetails
               products={products}
               reviews={reviews}
