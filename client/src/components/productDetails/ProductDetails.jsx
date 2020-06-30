@@ -2,18 +2,9 @@ import React from 'react';
 // import './ProductDetails.css';
 
 const ProductDetails = ({
-  reviews, products, results, styles, activeResult
+  reviews, products, results, styles, activeResult,
 }) =>
   // console.log(props.match.params.id;)
-  // getStyles(productsObject) {
-  //   let styles = [];
-  //   productsObject.map((first) => (
-  //     push(first.photos[0].thumbnail_url)
-  //   ));
-  //   return styles;
-  // }
-  // console.log("products", getStyles(results));
-  // const productStyles = getStyles(result)
   (
     <div className="product">
       <h6 className="product-reviews">
@@ -23,10 +14,29 @@ const ProductDetails = ({
       </h6>
       <h5 className="lead text-muted">{products.category}</h5>
       <h1 className="product-name">{products.name}</h1>
-      <h5 className="lead text-muted">
-        $
-        {activeResult.sale_price > 0 ? activeResult.sale_price : activeResult.original_price}
-      </h5>
+      {activeResult.sale_price > 0
+        ? (
+          <div>
+            <h5 className="lead text-muted">
+              <s>
+                $
+                {activeResult.original_price}
+              </s>
+            </h5>
+            <h5 className="lead text-danger">
+              $
+              {activeResult.sale_price}
+            </h5>
+          </div>
+        )
+        : (
+          <div>
+            <h5 className="lead text-muted">
+              $
+              {activeResult.original_price}
+            </h5>
+          </div>
+        )}
       <h5 className="text-muted">
         <strong>{'STYLE >  '}</strong>
         {activeResult.name}

@@ -15,7 +15,8 @@ class App extends Component {
       results: [],
       activeResult: [],
       stylesArray: [],
-      currentStyle: 0,
+      currentStyle: 2,
+      currentProduct: 4,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,23 +39,25 @@ class App extends Component {
   }
 
   getProductData() {
+    const { currentProduct } = this.state;
     fetch('http://52.26.193.201:3000/products/list')
       .then((res) => res.json())
-      .then((data) => this.setState({ products: data[4] }));
+      .then((data) => this.setState({ products: data[(currentProduct - 1)] }));
   }
 
   getReviewData() {
-    fetch('http://52.26.193.201:3000/reviews/5/list')
+    const { currentProduct } = this.state;
+    fetch(`http://52.26.193.201:3000/reviews/${currentProduct}/list`)
       .then((res) => res.json())
       .then((data) => this.setState({ reviews: data.results }));
   }
 
   getProductImages() { // id could live in (params)
-    const { currentStyle } = this.state;
-    fetch('http://52.26.193.201:3000/products/5/styles/')
+    const { currentStyle, currentProduct } = this.state;
+    fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log('e', data);
+        // console.log('z', data);
         this.setState({
           results: data.results, activeResult: data.results[currentStyle],
         }); // ${id} adust to styles with getprodbyid
@@ -78,6 +81,7 @@ class App extends Component {
   GetProductById() {
     const { products, match } = this.state;
     // console.log(match.params.id);
+    // change of plans: get product's index or id to change activeResult instead - no match no params -> maybe
     const product = products.find((item) => item.id === this.match.params.id);
     return (
       <div>
@@ -117,10 +121,10 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-1">
             <Thumbnails photos={activeResult.photos} />
           </div>
-          <div className="col-7">
+          <div className="col">
             <MainCarousel photos={activeResult.photos} />
           </div>
           <div className="col-2.5">
