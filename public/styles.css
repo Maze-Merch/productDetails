@@ -2,15 +2,6 @@ footer img {
   height: 200px;
 }
 
-.thumb {
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-}
-
-.img-thumbnail {
-  scroll-snap-align: start;
-}
-
 .stars-outer {
   position: relative;
   display: inline-block;

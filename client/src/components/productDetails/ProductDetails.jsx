@@ -47,15 +47,15 @@ const ProductDetails = ({
         {activeResult.name}
       </h5>
       {styles
-        && styles.map((style) => (
+        && styles.map((style, i) => (
           <div
             key={style.style_id}
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
           "
           >
-            <div className="col-sm">
+            <div className="col-sm" onClick={handleChange}>
               <img
-                // onClick={handleChange}
+                imgkey={style.style_id}
                 width="75res"
                 height="75res"
                 src={style.photos.thumbnail_url}
