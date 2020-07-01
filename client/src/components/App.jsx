@@ -16,9 +16,9 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 3,
+      currentProduct: 5,
     };
-
+    this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -78,25 +78,27 @@ class App extends Component {
     this.setState({ stylesArray });
   }
 
-  GetProductById() {
-    const { products, match } = this.state;
-    // console.log(match.params.id);
-    // change of plans: get product's index or id to change activeResult instead - no match no params -> maybe
-    const product = products.find((item) => item.id === this.match.params.id);
-    return (
-      <div>
-        <h1>{product.name}</h1>
-      </div>
-    );
+  getProductById(id) {
+    const { results } = this.state;
+    // console.log('getIDIDID', results);
+    results.forEach((result) => {
+      // console.log('getId', result);
+      if (result.style_id === id) {
+        console.log('activeRESULT', result);
+        this.setState({ activeResult: result });
+      }
+    });
   }
 
-  handleChange(event, key) {
+  handleChange(event) {
     const { results, stylesArray } = this.state;
     // const { activeResult } = event.target.value;
     event.preventDefault();
+    const id = event.target.getAttribute('imgkey');
     alert('Clicked');
-    console.log(event.target, key);
-    // this.setState({ activeResult: results.style_id });
+    // console.log('activeResult', this.getProductById(event.target.getAttribute('imgkey')), event.target.getAttribute('imgkey'), results);
+    this.getProductById(id);
+    // this.setState({ activeResult: this.GetProductById(event.target.getAttribute('imgkey')) });
   }
 
   render() {
