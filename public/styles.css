@@ -2,10 +2,6 @@ footer img {
   height: 200px;
 }
 
-.carousel-inner {
-  height: 45vh;
-}
-
 .thumb {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;

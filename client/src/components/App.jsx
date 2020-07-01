@@ -16,7 +16,7 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 5,
+      currentProduct: 3,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -90,11 +90,13 @@ class App extends Component {
     );
   }
 
-  handleChange(event) {
+  handleChange(event, key) {
+    const { results, stylesArray } = this.state;
     // const { activeResult } = event.target.value;
     event.preventDefault();
     alert('Clicked');
-    this.setState(this.getProductById);
+    console.log(event.target, key);
+    // this.setState({ activeResult: results.style_id });
   }
 
   render() {
@@ -119,14 +121,15 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="d-none d-xl-block col-xl-2" />
-          <div className="col-sm-1 d-none d-lg-block d-xl-block">
+          <div className="col-xl-1 d-none d-xl-block">
             <Thumbnails photos={activeResult.photos} />
           </div>
           <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
           </div>
-          <div className="col-sm-3">
+          <div className="col-xl-3">
             <ProductDetails
+              handleChange={this.handleChange}
               products={products}
               reviews={reviews}
               activeResult={activeResult}

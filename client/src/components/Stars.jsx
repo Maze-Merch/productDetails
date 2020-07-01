@@ -45,7 +45,7 @@ class Stars extends React.Component {
     };
     return (
       <div className="starsParent">
-        <h6 className="mb-0">
+        <h6 className="mb-0 lead">
           {(averageRating).toFixed(1)}
           {' '}
           Stars
