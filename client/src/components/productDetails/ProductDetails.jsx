@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from '../Stars';
 // import './ProductDetails.css';
 
 const ProductDetails = ({
@@ -7,11 +8,15 @@ const ProductDetails = ({
   // console.log(props.match.params.id;)
   (
     <div className="product">
+      {reviews
+      && (
       <h6 className="product-reviews">
-        **** 4.5 Stars Read
+        <Stars />
+        Read all
         {` ${reviews.length} `}
         reviews
       </h6>
+      )}
       <h5 className="lead text-muted">{products.category}</h5>
       <h1 className="product-name">{products.name}</h1>
       {activeResult.sale_price > 0
@@ -48,7 +53,7 @@ const ProductDetails = ({
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
           "
           >
-            <div className="col">
+            <div className="col-sm">
               <img
                 // onClick={}
                 width="100res"
@@ -62,7 +67,7 @@ const ProductDetails = ({
         ))}
       <div className="container-fluid">
         <div className="d-flex flex-row">
-          <select className="col-8 dropdown  mt-4
+          <select className="col-sm-8 mt-4
            mr-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
           >
             <option value="">SELECT SIZE</option>
@@ -70,7 +75,7 @@ const ProductDetails = ({
             <option value="">MD</option>
             <option value="">LG</option>
           </select>
-          <select className="col-3 dropdown  mt-4
+          <select className="col-sm-3 mt-4
            ml-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
           >
             <option value="">1</option>
@@ -81,7 +86,7 @@ const ProductDetails = ({
         </div>
         <div className="d-flex flex-row">
           <div
-            className="col-10 mt-4
+            className="col-sm-10 mt-4
            mr-2 pl-0"
           >
             <button
@@ -93,7 +98,7 @@ const ProductDetails = ({
             </button>
           </div>
           <div
-            className="col-2.5 mt-4
+            className="col-sm-2.5 mt-4
            ml-2"
           >
             <button
