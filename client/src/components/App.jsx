@@ -109,25 +109,23 @@ class App extends Component {
       results,
       'styles',
       stylesArray,
+      'reviews',
+      reviews,
     );
     return (
       <div className="container-fluid mb-5">
         <div className="jumbotron jumbotron-fluid">
-          <div className="container-fluid">
-            <p className="lead text-center">
-              <strong>Save Up to 40% Off in the </strong>
-              Summer Solstice Sale
-            </p>
-          </div>
+          <div className="container-fluid" />
         </div>
         <div className="row">
-          <div className="col-1">
+          <div className="d-none d-xl-block col-xl-2" />
+          <div className="col-sm-1 d-none d-lg-block d-xl-block">
             <Thumbnails photos={activeResult.photos} />
           </div>
-          <div className="col">
+          <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
           </div>
-          <div className="col-3">
+          <div className="col-sm-3">
             <ProductDetails
               products={products}
               reviews={reviews}
@@ -136,15 +134,18 @@ class App extends Component {
               styles={stylesArray}
             />
           </div>
+          <div className="d-none d-xl-block col-xl-2" />
         </div>
         <div className="row">
-          <div className="col-1" />
-          <div className="col-7 mt-5">
+          <div className="d-none d-xl-block col-xl-2" />
+          <div className="col-sm-1" />
+          <div className="col-sm mt-5">
             <Description products={products} />
           </div>
-          <div className="col mt-5">
+          <div className="col-sm-3 mt-5">
             <Checklist />
           </div>
+          <div className="d-none d-xl-block col-xl-2" />
         </div>
       </div>
     );
