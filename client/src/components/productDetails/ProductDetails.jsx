@@ -3,14 +3,14 @@ import Stars from '../Stars';
 // import './ProductDetails.css';
 
 const ProductDetails = ({
-  reviews, products, results, styles, activeResult,
+  reviews, products, results, styles, activeResult, handleChange,
 }) =>
   // console.log(props.match.params.id;)
   (
     <div className="product">
       {reviews
       && (
-      <h6 className="product-reviews">
+      <h6 className="lead">
         <Stars />
         Read all
         {` ${reviews.length} `}
@@ -47,7 +47,7 @@ const ProductDetails = ({
         {activeResult.name}
       </h5>
       {styles
-        && styles.map((style, i) => (
+        && styles.map((style) => (
           <div
             key={style.style_id}
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
@@ -55,9 +55,9 @@ const ProductDetails = ({
           >
             <div className="col-sm">
               <img
-                // onClick={}
-                width="100res"
-                height="100res"
+                // onClick={handleChange}
+                width="75res"
+                height="75res"
                 src={style.photos.thumbnail_url}
                 className="rounded-circle"
                 alt="white shoes"
