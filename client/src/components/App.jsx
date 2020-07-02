@@ -20,6 +20,7 @@ class App extends Component {
     };
     // this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    // this.toggleStar = this.toggleStar.bind(this);
   }
 
   componentDidMount() {
@@ -83,11 +84,28 @@ class App extends Component {
     });
   }
 
-  handleChange(event) {
-    event.preventDefault();
-    const id = event.target.getAttribute('imgkey');
+  handleChange(e) {
+    e.preventDefault();
+    const id = e.target.getAttribute('imgkey');
     this.getProductById(id);
   }
+
+  // toggleStar(e) {
+  //   const tgt = e.target.firstElementChild;
+  //   tgt.classList.toggle('bi-star-fill');
+  //   tgt.classList.toggle('bi-star');
+  // }
+
+  // toggleStar(e) {
+  //   const icon = document.getElementById('favoriteButton');
+  //   if (icon.classList.contains('bi bi-star-fill')) {
+  //     icon.classList.remove('bi bi-star-fill');
+  //     icon.classList.add('bi bi-star');
+  //   } else {
+  //     icon.classList.remove('bi bi-star');
+  //     icon.classList.add('bi bi-star-fill');
+  //   }
+  // }
 
   render() {
     const {
@@ -124,6 +142,7 @@ class App extends Component {
           <div className="col-xl-3">
             <ProductDetails
               handleChange={this.handleChange}
+              toggleStar={this.toggleStar}
               products={products}
               reviews={reviews}
               activeResult={activeResult}
