@@ -90,6 +90,10 @@ class App extends Component {
     this.getProductById(id);
   }
 
+  // toggleStar(x) {
+  //   x.classList.toggle('bi-star-fill');
+  // }
+
   // toggleStar(e) {
   //   const tgt = e.target.firstElementChild;
   //   tgt.classList.toggle('bi-star-fill');
