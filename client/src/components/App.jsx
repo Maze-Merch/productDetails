@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import ProductDetails from "./productDetails/ProductDetails";
-import MainCarousel from "./carousel/MainCarousel";
-import Description from "./Description";
-import Thumbnails from "./Thumbnails";
-import Checklist from "./Checklist";
+import React, { Component } from 'react';
+import ProductDetails from './productDetails/ProductDetails';
+import MainCarousel from './carousel/MainCarousel';
+import Description from './Description';
+import Thumbnails from './Thumbnails';
+import Checklist from './Checklist';
 
 class App extends Component {
   constructor() {
@@ -14,11 +14,9 @@ class App extends Component {
       reviews: [],
       results: [],
       activeResult: [],
-      stylesArray: [],
       currentStyle: 0,
       currentProduct: 4,
     };
-    // this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     // this.toggleStar = this.toggleStar.bind(this);
@@ -30,16 +28,9 @@ class App extends Component {
     this.getProductImages();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { results } = this.state;
-    if (prevState.results !== results) {
-      this.getStyles(results);
-    }
-  }
-
   getProductData() {
     const { currentProduct } = this.state;
-    fetch("http://52.26.193.201:3000/products/list")
+    fetch('http://52.26.193.201:3000/products/list')
       .then((res) => res.json())
       .then((data) => this.setState({ products: data[currentProduct - 1] }));
   }
@@ -61,20 +52,6 @@ class App extends Component {
           activeResult: data.results[currentStyle],
         });
       });
-  }
-
-  getStyles() {
-    const { results } = this.state;
-    const stylesArray = [];
-    // const style_id = 0;
-    results.map((firstPhoto) => {
-      const styles = {
-        style_id: firstPhoto.style_id,
-        photos: firstPhoto.photos[0],
-      };
-      stylesArray.push(styles);
-    });
-    this.setState({ stylesArray });
   }
 
   handleChange(e, style) {
@@ -114,20 +91,17 @@ class App extends Component {
       products,
       results,
       activeResult,
-      stylesArray,
     } = this.state;
-    // console.log("products", getStyles(results));
+
     console.log(
-      "app activeResult",
-      activeResult,
-      "results",
+      'results',
       results,
-      "styles",
-      stylesArray,
-      "products",
+      'app activeResult',
+      activeResult,
+      'products',
       products,
-      "reviews",
-      reviews
+      'reviews',
+      reviews,
     );
     return (
       <div className="container-fluid mb-5">
@@ -150,7 +124,6 @@ class App extends Component {
               reviews={reviews}
               activeResult={activeResult}
               results={results}
-              styles={stylesArray}
             />
           </div>
           <div className="d-none d-xl-block col-xl-2" />
