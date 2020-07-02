@@ -16,7 +16,7 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 5,
+      currentProduct: 3,
     };
     this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -116,7 +116,11 @@ class App extends Component {
         <div className="row">
           <div className="d-none d-xl-block col-xl-2" />
           <div className="col-xl-1 d-none d-xl-block">
-            <Thumbnails photos={activeResult.photos} />
+            <Thumbnails
+              activeResult={activeResult.photos}
+              handleChange={this.handleChange}
+              styles={stylesArray}
+            />
           </div>
           <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
