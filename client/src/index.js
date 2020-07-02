@@ -4,3 +4,4 @@ import App from './components/App';
 import 'bootstrap';
 
 ReactDOM.render(<App />, document.getElementById('details'));
+

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import ProductDetails from './productDetails/ProductDetails';
-import MainCarousel from './carousel/MainCarousel';
-import Description from './Description';
-import Thumbnails from './Thumbnails';
-import Checklist from './Checklist';
+import React, { Component } from "react";
+import ProductDetails from "./productDetails/ProductDetails";
+import MainCarousel from "./carousel/MainCarousel";
+import Description from "./Description";
+import Thumbnails from "./Thumbnails";
+import Checklist from "./Checklist";
 
 class App extends Component {
   constructor() {
@@ -16,10 +16,12 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 3,
+      currentProduct: 4,
     };
-    this.getProductById = this.getProductById.bind(this);
+    // this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.toggleStar = this.toggleStar.bind(this);
   }
 
   componentDidMount() {
@@ -29,20 +31,17 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { results, activeResult } = this.state;
+    const { results } = this.state;
     if (prevState.results !== results) {
       this.getStyles(results);
     }
-    // if (prevState.activeResult !== activeResult) {
-    //   this.getProductImages()
-    // }
   }
 
   getProductData() {
     const { currentProduct } = this.state;
-    fetch('http://52.26.193.201:3000/products/list')
+    fetch("http://52.26.193.201:3000/products/list")
       .then((res) => res.json())
-      .then((data) => this.setState({ products: data[(currentProduct - 1)] }));
+      .then((data) => this.setState({ products: data[currentProduct - 1] }));
   }
 
   getReviewData() {
@@ -52,15 +51,15 @@ class App extends Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
-  getProductImages() { // id could live in (params)
+  getProductImages() {
     const { currentStyle, currentProduct } = this.state;
     fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log('z', data);
         this.setState({
-          results: data.results, activeResult: data.results[currentStyle],
-        }); // ${id} adust to styles with getprodbyid
+          results: data.results,
+          activeResult: data.results[currentStyle],
+        });
       });
   }
 
@@ -78,35 +77,57 @@ class App extends Component {
     this.setState({ stylesArray });
   }
 
-  getProductById(id) {
-    const { results } = this.state;
-    results.forEach((result) => {
-      if (result.style_id == id) {
-        this.setState({ activeResult: result });
-      }
-    });
+  handleChange(e, style) {
+    e.preventDefault();
+    this.setState({ activeResult: style });
   }
 
-  handleChange(event) {
-    event.preventDefault();
-    const id = event.target.getAttribute('imgkey');
-    this.getProductById(id);
+  handleKeyPress(e, style) {
+    e.preventDefault();
+    this.setState({ activeResult: style });
   }
+
+  // toggleStar(x) {
+  //   x.classList.toggle('bi-star-fill');
+  // }
+
+  // toggleStar(e) {
+  //   const tgt = e.target.firstElementChild;
+  //   tgt.classList.toggle('bi-star-fill');
+  //   tgt.classList.toggle('bi-star');
+  // }
+
+  // toggleStar(e) {
+  //   const icon = document.getElementById('favoriteButton');
+  //   if (icon.classList.contains('bi bi-star-fill')) {
+  //     icon.classList.remove('bi bi-star-fill');
+  //     icon.classList.add('bi bi-star');
+  //   } else {
+  //     icon.classList.remove('bi bi-star');
+  //     icon.classList.add('bi bi-star-fill');
+  //   }
+  // }
 
   render() {
     const {
-      reviews, products, results, activeResult, stylesArray,
+      reviews,
+      products,
+      results,
+      activeResult,
+      stylesArray,
     } = this.state;
     // console.log("products", getStyles(results));
     console.log(
-      'app activeResult',
+      "app activeResult",
       activeResult,
-      'results',
+      "results",
       results,
-      'styles',
+      "styles",
       stylesArray,
-      'reviews',
-      reviews,
+      "products",
+      products,
+      "reviews",
+      reviews
     );
     return (
       <div className="container-fluid mb-5">
@@ -116,11 +137,7 @@ class App extends Component {
         <div className="row">
           <div className="d-none d-xl-block col-xl-2" />
           <div className="col-xl-1 d-none d-xl-block">
-            <Thumbnails
-              activeResult={activeResult.photos}
-              handleChange={this.handleChange}
-              styles={stylesArray}
-            />
+            <Thumbnails activeResult={activeResult.photos} />
           </div>
           <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
@@ -128,6 +145,7 @@ class App extends Component {
           <div className="col-xl-3">
             <ProductDetails
               handleChange={this.handleChange}
+              toggleStar={this.toggleStar}
               products={products}
               reviews={reviews}
               activeResult={activeResult}
@@ -154,13 +172,3 @@ class App extends Component {
 }
 
 export default App;
-
-// onClick={this.handleChange}
-
-// {/* <form> */}
-// {/* <input
-//   type="text"
-//   value={products}
-//   onChange={this.handleChange}
-// /> */}
-// {/* </form> */}
