@@ -14,7 +14,7 @@ const MainCarousel = ({ photos }) => (
       {photos
         && photos.map((photo, i) => (
           <div
-            key={i}
+            key={photo.url}
             className={i === 0 ? 'carousel-item active' : 'carousel-item'}
           >
             <img className="d-block w-100" src={photo.url} alt="slide" />

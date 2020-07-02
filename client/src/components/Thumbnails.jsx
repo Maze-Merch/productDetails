@@ -1,25 +1,27 @@
 import React from 'react';
 
 const Thumbnails = ({
-  activeResult, styles, handleChange
+  activeResult
 }) =>
   // console.log("mc props", photos);
   (
-    <div className="flex-wrap container thumb">
-      {styles
-        && styles.map((style, i) => (
+    <div className="flex-wrap container">
+      {activeResult
+        && activeResult.map((photo, i) => (
           <div
-            key={style.style_id}
+            key={photo.url}
             className="row mt-2"
           >
-            {i < 5 ? (
-              <section className="img-thumbnail my-auto flex-wrap" onClick={handleChange}>
+            {i < 7 ? (
+              <section className="img-thumbnail my-auto flex-wrap">
                 <img
-                  imgkey={style.style_id}
+                  // imgkey={photo.url}
                   width="100res"
                   height="100res"
-                  src={style.photos.thumbnail_url}
+                  src={photo.thumbnail_url}
                   alt="white shoes"
+                  href="#mainCarousel"
+                  data-slide-to={i}
                 />
               </section>
             ) : (

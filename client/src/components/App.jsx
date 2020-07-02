@@ -16,9 +16,9 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 5,
+      currentProduct: 3,
     };
-    this.getProductById = this.getProductById.bind(this);
+    // this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -29,13 +29,10 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { results, activeResult } = this.state;
+    const { results } = this.state;
     if (prevState.results !== results) {
       this.getStyles(results);
     }
-    // if (prevState.activeResult !== activeResult) {
-    //   this.getProductImages()
-    // }
   }
 
   getProductData() {
@@ -52,15 +49,14 @@ class App extends Component {
       .then((data) => this.setState({ reviews: data.results }));
   }
 
-  getProductImages() { // id could live in (params)
+  getProductImages() {
     const { currentStyle, currentProduct } = this.state;
     fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log('z', data);
         this.setState({
           results: data.results, activeResult: data.results[currentStyle],
-        }); // ${id} adust to styles with getprodbyid
+        });
       });
   }
 
@@ -105,6 +101,8 @@ class App extends Component {
       results,
       'styles',
       stylesArray,
+      'products',
+      products,
       'reviews',
       reviews,
     );
@@ -118,8 +116,6 @@ class App extends Component {
           <div className="col-xl-1 d-none d-xl-block">
             <Thumbnails
               activeResult={activeResult.photos}
-              handleChange={this.handleChange}
-              styles={stylesArray}
             />
           </div>
           <div className="col-sm">
