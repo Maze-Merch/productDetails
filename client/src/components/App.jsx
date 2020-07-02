@@ -80,25 +80,17 @@ class App extends Component {
 
   getProductById(id) {
     const { results } = this.state;
-    // console.log('getIDIDID', results);
     results.forEach((result) => {
-      // console.log('getId', result);
-      if (result.style_id === id) {
-        console.log('activeRESULT', result);
+      if (result.style_id == id) {
         this.setState({ activeResult: result });
       }
     });
   }
 
   handleChange(event) {
-    const { results, stylesArray } = this.state;
-    // const { activeResult } = event.target.value;
     event.preventDefault();
     const id = event.target.getAttribute('imgkey');
-    alert('Clicked');
-    // console.log('activeResult', this.getProductById(event.target.getAttribute('imgkey')), event.target.getAttribute('imgkey'), results);
     this.getProductById(id);
-    // this.setState({ activeResult: this.GetProductById(event.target.getAttribute('imgkey')) });
   }
 
   render() {
