@@ -16,7 +16,7 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 5,
+      currentProduct: 3,
     };
     this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -80,25 +80,17 @@ class App extends Component {
 
   getProductById(id) {
     const { results } = this.state;
-    // console.log('getIDIDID', results);
     results.forEach((result) => {
-      // console.log('getId', result);
-      if (result.style_id === id) {
-        console.log('activeRESULT', result);
+      if (result.style_id == id) {
         this.setState({ activeResult: result });
       }
     });
   }
 
   handleChange(event) {
-    const { results, stylesArray } = this.state;
-    // const { activeResult } = event.target.value;
     event.preventDefault();
     const id = event.target.getAttribute('imgkey');
-    alert('Clicked');
-    // console.log('activeResult', this.getProductById(event.target.getAttribute('imgkey')), event.target.getAttribute('imgkey'), results);
     this.getProductById(id);
-    // this.setState({ activeResult: this.GetProductById(event.target.getAttribute('imgkey')) });
   }
 
   render() {
@@ -124,7 +116,11 @@ class App extends Component {
         <div className="row">
           <div className="d-none d-xl-block col-xl-2" />
           <div className="col-xl-1 d-none d-xl-block">
-            <Thumbnails photos={activeResult.photos} />
+            <Thumbnails
+              activeResult={activeResult.photos}
+              handleChange={this.handleChange}
+              styles={stylesArray}
+            />
           </div>
           <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
