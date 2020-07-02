@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import ProductDetails from './productDetails/ProductDetails';
-import MainCarousel from './carousel/MainCarousel';
-import Description from './Description';
-import Thumbnails from './Thumbnails';
-import Checklist from './Checklist';
+import React, { Component } from "react";
+import ProductDetails from "./productDetails/ProductDetails";
+import MainCarousel from "./carousel/MainCarousel";
+import Description from "./Description";
+import Thumbnails from "./Thumbnails";
+import Checklist from "./Checklist";
 
 class App extends Component {
   constructor() {
@@ -16,10 +16,11 @@ class App extends Component {
       activeResult: [],
       stylesArray: [],
       currentStyle: 0,
-      currentProduct: 3,
+      currentProduct: 4,
     };
     // this.getProductById = this.getProductById.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     // this.toggleStar = this.toggleStar.bind(this);
   }
 
@@ -38,9 +39,9 @@ class App extends Component {
 
   getProductData() {
     const { currentProduct } = this.state;
-    fetch('http://52.26.193.201:3000/products/list')
+    fetch("http://52.26.193.201:3000/products/list")
       .then((res) => res.json())
-      .then((data) => this.setState({ products: data[(currentProduct - 1)] }));
+      .then((data) => this.setState({ products: data[currentProduct - 1] }));
   }
 
   getReviewData() {
@@ -56,7 +57,8 @@ class App extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          results: data.results, activeResult: data.results[currentStyle],
+          results: data.results,
+          activeResult: data.results[currentStyle],
         });
       });
   }
@@ -75,19 +77,14 @@ class App extends Component {
     this.setState({ stylesArray });
   }
 
-  getProductById(id) {
-    const { results } = this.state;
-    results.forEach((result) => {
-      if (result.style_id == id) {
-        this.setState({ activeResult: result });
-      }
-    });
+  handleChange(e, style) {
+    e.preventDefault();
+    this.setState({ activeResult: style });
   }
 
-  handleChange(e) {
+  handleKeyPress(e, style) {
     e.preventDefault();
-    const id = e.target.getAttribute('imgkey');
-    this.getProductById(id);
+    this.setState({ activeResult: style });
   }
 
   // toggleStar(x) {
@@ -113,20 +110,24 @@ class App extends Component {
 
   render() {
     const {
-      reviews, products, results, activeResult, stylesArray,
+      reviews,
+      products,
+      results,
+      activeResult,
+      stylesArray,
     } = this.state;
     // console.log("products", getStyles(results));
     console.log(
-      'app activeResult',
+      "app activeResult",
       activeResult,
-      'results',
+      "results",
       results,
-      'styles',
+      "styles",
       stylesArray,
-      'products',
+      "products",
       products,
-      'reviews',
-      reviews,
+      "reviews",
+      reviews
     );
     return (
       <div className="container-fluid mb-5">
@@ -136,9 +137,7 @@ class App extends Component {
         <div className="row">
           <div className="d-none d-xl-block col-xl-2" />
           <div className="col-xl-1 d-none d-xl-block">
-            <Thumbnails
-              activeResult={activeResult.photos}
-            />
+            <Thumbnails activeResult={activeResult.photos} />
           </div>
           <div className="col-sm">
             <MainCarousel photos={activeResult.photos} />
@@ -173,13 +172,3 @@ class App extends Component {
 }
 
 export default App;
-
-// onClick={this.handleChange}
-
-// {/* <form> */}
-// {/* <input
-//   type="text"
-//   value={products}
-//   onChange={this.handleChange}
-// /> */}
-// {/* </form> */}

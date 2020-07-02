@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Stars from '../Stars';
 // import './ProductDetails.css';
 
@@ -7,7 +8,7 @@ import Stars from '../Stars';
 // };
 
 const ProductDetails = ({
-  reviews, products, styles, activeResult, handleChange, toggleStar,
+  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar,
 }) => (
   <div className="product">
     {reviews
@@ -48,21 +49,30 @@ const ProductDetails = ({
       <strong>{'STYLE >  '}</strong>
       {activeResult.name}
     </h5>
-    {styles
-        && styles.map((style, i) => (
+    {results
+        && results.map((style, i) => (
           <div
             key={style.style_id}
             className="row d-inline-flex flex-wrap mx-auto mt-4 mb-3.5
           "
           >
-            <div className="col-sm" onClick={handleChange}>
+            <div
+              className="col-sm"
+              // onClick={(e) => handleChange(e, style)}
+              // role="button"
+            >
               <img
                 imgkey={style.style_id}
                 width="75res"
                 height="75res"
-                src={style.photos.thumbnail_url}
+                src={style.photos[0].thumbnail_url}
                 className="rounded-circle"
-                alt="white shoes"
+                alt={style.name}
+                role="option"
+                aria-selected="false"
+                tabIndex={i}
+                onClick={(e) => handleChange(e, style)}
+                onKeyPress={(e) => handleKeyPress(e, style)}
               />
             </div>
           </div>
@@ -107,19 +117,16 @@ const ProductDetails = ({
            ml-2"
         >
           <button
-            className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left"
+            className="btn btn-outline-secondary btn-lg btn-secondary btn-block"
             onClick={toggleStar}
             type="button"
             id="favoriteButton"
-            // data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
           >
             <svg
               width="1em"
               height="1em"
               viewBox="0 0 16 16"
-              onClick={toggleStar(this)}
+              // onClick={toggleStar(this)}
               className="bi bi-star"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
@@ -135,4 +142,10 @@ const ProductDetails = ({
     </div>
   </div>
 );
+
+ProductDetails.propTypes = {
+  // handleChange: PropTypes.function.isRequired,
+  results: PropTypes.array.isRequired,
+};
+
 export default ProductDetails;
