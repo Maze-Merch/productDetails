@@ -8,13 +8,13 @@ import Stars from '../Stars';
 // };
 
 const ProductDetails = ({
-  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar,
+  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar, averageRating, starPercentage, averageStarRating
 }) => (
   <div className="product">
     {reviews
       && (
       <h6 className="lead">
-        <Stars />
+        <Stars reviews={reviews} starPercentage={starPercentage} averageRating={averageRating} averageStarRating={averageStarRating} />
         Read all
         {` ${reviews.length} `}
         reviews
