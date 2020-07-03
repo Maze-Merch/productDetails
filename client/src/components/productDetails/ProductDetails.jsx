@@ -8,13 +8,13 @@ import Stars from '../Stars';
 // };
 
 const ProductDetails = ({
-  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar,
+  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar, averageRating, starPercentage, averageStarRating
 }) => (
   <div className="product">
     {reviews
       && (
       <h6 className="lead">
-        <Stars />
+        <Stars reviews={reviews} starPercentage={starPercentage} averageRating={averageRating} averageStarRating={averageStarRating} />
         Read all
         {` ${reviews.length} `}
         reviews
@@ -145,7 +145,28 @@ const ProductDetails = ({
 
 ProductDetails.propTypes = {
   // handleChange: PropTypes.function.isRequired,
-  results: PropTypes.array.isRequired,
+  results: PropTypes.arrayOf(PropTypes.shape({
+    style_id: PropTypes.number,
+    name: PropTypes.string,
+    original_price: PropTypes.string,
+    photos: PropTypes.array,
+    sale_price: PropTypes.string,
+    skus: PropTypes.shape({
+      XS: PropTypes.number,
+      S: PropTypes.number,
+      MD: PropTypes.number,
+      LG: PropTypes.number,
+      XL: PropTypes.number,
+      XXL: PropTypes.number,
+    }),
+  })).isRequired,
+  reviews: PropTypes.array.isRequired,
+  // products: PropTypes.shape({
+  //   category: PropTypes.string,
+  //   description: PropTypes.string,
+  //   slogan: PropTypes.string,
+  //   name: PropTypes.string,
+  // }).isRequired,
 };
 
 export default ProductDetails;
