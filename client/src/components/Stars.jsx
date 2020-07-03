@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Stars = ({ reviews, starPercentage, averageRating }) => {
-
   const widthStyle = {
     width: `${starPercentage}%`,
   };
