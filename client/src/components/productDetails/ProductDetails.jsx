@@ -8,7 +8,9 @@ import Stars from '../Stars';
 // };
 
 const ProductDetails = ({
-  reviews, products, activeResult, handleChange, handleKeyPress, results, toggleStar, averageRating, starPercentage, averageStarRating
+  reviews, products, activeResult,
+  handleChange, handleKeyPress, results,
+  toggleStar, averageRating, starPercentage, averageStarRating
 }) => (
   <div className="product">
     {reviews
@@ -160,7 +162,7 @@ ProductDetails.propTypes = {
       XXL: PropTypes.number,
     }),
   })).isRequired,
-  reviews: PropTypes.array.isRequired,
+  // reviews: PropTypes.array.isRequired,
   // products: PropTypes.shape({
   //   category: PropTypes.string,
   //   description: PropTypes.string,

@@ -130,16 +130,16 @@ class App extends Component {
       modal,
     } = this.state;
 
-    console.log(
-      'results',
-      results,
-      'app actdiveResult',
-      activeResult,
-      'products',
-      products,
-      'reviews',
-      reviews,
-    );
+    // console.log(
+    //   'results',
+    //   results,
+    //   'app actdiveResult',
+    //   activeResult,
+    //   'products',
+    //   products,
+    //   'reviews',
+    //   reviews,
+    // );
     return (
       <div className="container-fluid mb-5">
         <div className="jumbotron jumbotron-fluid">
