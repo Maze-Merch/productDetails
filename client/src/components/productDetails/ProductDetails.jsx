@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Stars from '../Stars';
-// import './ProductDetails.css';
-
-// const toggleStar = (x) => {
-//   x.classList.toggle('bi bi-star-fill');
-// };
 
 const ProductDetails = ({
   reviews, products, activeResult,
@@ -16,7 +11,12 @@ const ProductDetails = ({
     {reviews
       && (
       <h6 className="lead">
-        <Stars reviews={reviews} starPercentage={starPercentage} averageRating={averageRating} averageStarRating={averageStarRating} />
+        <Stars
+          reviews={reviews}
+          starPercentage={starPercentage}
+          averageRating={averageRating}
+          averageStarRating={averageStarRating}
+        />
         Read all
         {` ${reviews.length} `}
         reviews

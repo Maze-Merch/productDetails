@@ -1,32 +1,43 @@
 import React from 'react';
 
-const Modal = (props) => {
-  // console.log('modal', props);
+const Modal = ({ modalInfo, displayModal }) => {
 
-  function displayInfo() {
-    return (
-      <div className="qnamodal-container">
-        <img className="qnamodal-img" src={props.modalInfo} />
-      </div>
-    );
-  }
   const divStyle = {
-    display: props.displayModal ? 'block' : 'none',
+    display: displayModal ? 'block' : 'none',
   };
 
   function closeModal(e) {
     e.stopPropagation();
-    props.closeModal();
+    closeModal();
   }
+
   return (
-    <div className="modal qnamodal" onClick={closeModal} style={divStyle}>
-      <div className="modal-content qnaMC" onClick={(e) => e.stopPropagation()}>
-        <span className="qnaclose" onClick={closeModal}>
+    <div
+      className="modal qnamodal"
+      onClick={closeModal}
+      style={divStyle}
+      role="button"
+    >
+      <div
+        className="modal-content qnaMC"
+        onClick={(e) => e.stopPropagation()}
+        role="button"
+      >
+        <span
+          className="qnaclose"
+          onClick={closeModal}
+          role="button"
+        >
           &times;
         </span>
-        <div className="qnamodal-flex">{displayInfo()}</div>
+        <div className="qnamodal-flex">
+          <div className="qnamodal-container">
+            <img className="qnamodal-img" src={modalInfo} alt="" />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Modal;
