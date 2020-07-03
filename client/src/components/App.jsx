@@ -65,10 +65,11 @@ class App extends Component {
   // }
 
   selectModal(info = '') {
+    const { modal } = this.state;
     this.setState({
-      modal: !this.state.modal,
+      modal: !modal,
       modalInfo: info,
-    }); // true/false toggle
+    });
   }
 
   averageStarRating() {
@@ -97,27 +98,6 @@ class App extends Component {
     this.setState({ activeResult: style });
   }
 
-  // toggleStar(x) {
-  //   x.classList.toggle('bi-star-fill');
-  // }
-
-  // toggleStar(e) {
-  //   const tgt = e.target.firstElementChild;
-  //   tgt.classList.toggle('bi-star-fill');
-  //   tgt.classList.toggle('bi-star');
-  // }
-
-  // toggleStar(e) {
-  //   const icon = document.getElementById('favoriteButton');
-  //   if (icon.classList.contains('bi bi-star-fill')) {
-  //     icon.classList.remove('bi bi-star-fill');
-  //     icon.classList.add('bi bi-star');
-  //   } else {
-  //     icon.classList.remove('bi bi-star');
-  //     icon.classList.add('bi bi-star-fill');
-  //   }
-  // }
-
   render() {
     const {
       reviews,
@@ -133,7 +113,7 @@ class App extends Component {
     // console.log(
     //   'results',
     //   results,
-    //   'app actdiveResult',
+    //   'app activeResult',
     //   activeResult,
     //   'products',
     //   products,
