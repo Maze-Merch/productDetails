@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  productdetails:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: productdetails
+    ports:
+      - "8080:3001"
