@@ -1,10 +1,21 @@
-version: '2'
+# version: '2'
+
+# services:
+#   productdetails:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: productdetails
+#     ports:
+#       - "8080:3001"
+
+version: '3.8'
 
 services:
-  productdetails:
+  mazeapp:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: productdetails
+    container_name: mazeapp
     ports:
       - "8080:3001"

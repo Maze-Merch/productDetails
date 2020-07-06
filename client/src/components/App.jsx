@@ -16,7 +16,7 @@ class App extends Component {
       results: [],
       activeResult: [],
       currentStyle: 0,
-      currentProduct: 4,
+      currentProduct: 1,
       averageRating: 0,
       starPercentage: 0,
       modal: false,
