@@ -82,7 +82,7 @@ const ProductDetails = ({
     <div className="container-fluid">
       <div className="d-flex flex-row">
         <select className="col-sm-8 mt-4
-           mr-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
+           mr-3 btn btn-outline-secondary btn-lg btn-block"
         >
           <option value="">SELECT SIZE</option>
           <option value="">XS</option>
@@ -93,7 +93,7 @@ const ProductDetails = ({
           <option value="">XXL</option>
         </select>
         <select className="col-sm-3 mt-4
-           ml-3 btn btn-outline-secondary btn-lg btn-secondary btn-block"
+           ml-3 btn btn-outline-secondary btn-lg btn-block"
         >
           <option value="">1</option>
           <option value="">2</option>
@@ -107,7 +107,7 @@ const ProductDetails = ({
            mr-2 pl-0"
         >
           <button
-            className="btn btn-outline-secondary btn-lg btn-secondary btn-block text-left"
+            className="btn btn-outline-secondary btn-lg btn-block text-left"
             type="button"
             id="addToCartButton"
           >
@@ -119,7 +119,7 @@ const ProductDetails = ({
            ml-2"
         >
           <button
-            className="btn btn-outline-secondary btn-lg btn-secondary btn-block"
+            className="btn btn-outline-secondary btn-lg btn-block"
             onClick={toggleStar}
             type="button"
             id="favoriteButton"
