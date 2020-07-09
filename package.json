@@ -8,7 +8,8 @@
     "test": "jest",
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
     "build": "webpack --watch --mode development",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "seed": "node database/seed.js"
   },
   "eslintConfig": {
     "extends": "airbnb",
