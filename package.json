@@ -8,7 +8,8 @@
     "test": "jest",
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
     "build": "webpack --watch --mode development",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "dataWriter": "node dataWriter.js"
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -25,9 +26,12 @@
     "cors": "^2.8.5",
     "debug": "^3.2.6",
     "express": "^4.17.1",
+    "fakergem": "^2.1.0",
+    "fs": "0.0.1-security",
     "jquery": "^3.5.1",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
+    "postgres": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
