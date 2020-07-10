@@ -24,3 +24,8 @@
 
   * Needs EC2 t2.small
   * Look into datastax
+
+#### Once the CSV file is created:
+  1. COPY sidecountry.products FROM '/Users/Josh/Desktop/HR_Immersive/SDC/productDetails/productsDBSeed.csv' with header=true and delimiter=',';
+  2. How the DB was created is in database > index.js file
+  3. Seed currently reduced for development
