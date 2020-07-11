@@ -50,7 +50,7 @@ class App extends Component {
 
   getProductImages() {
     const { currentStyle, currentProduct } = this.state;
-    fetch(`http://localhost:3001/products/${currentProduct}/styles/`)
+    fetch(`http://localhost:3001/products/styles/${currentProduct}/`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
