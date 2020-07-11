@@ -35,14 +35,14 @@ class App extends Component {
 
   getProductData() {
     const { currentProduct } = this.state;
-    fetch('http://52.26.193.201:3000/products/list')
+    fetch('http://localhost:3001/products?productID=5')
       .then((res) => res.json())
       .then((data) => this.setState({ products: data[currentProduct - 1] }));
   }
 
   getReviewData() {
     const { currentProduct } = this.state;
-    fetch(`http://52.26.193.201:3000/reviews/${currentProduct}/list`)
+    fetch(`http://localhost:3001/reviews/${currentProduct}/list`)
       .then((res) => res.json())
       .then((data) => this.setState({ reviews: data.results }))
       .then(() => this.averageStarRating());
@@ -50,7 +50,7 @@ class App extends Component {
 
   getProductImages() {
     const { currentStyle, currentProduct } = this.state;
-    fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
+    fetch(`http://localhost:3001/products/${currentProduct}/styles/`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
