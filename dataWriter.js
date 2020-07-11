@@ -6,7 +6,7 @@ const dataWriter = () => {
   writeProducts.write('id|style_id|name|slogan|description|original_price|photos|sale_price|skus|reviews\n', 'utf8');
 
   const writeManyProducts = (writer, encoding, callback) => {
-    let i = 100;
+    let i = 10000000;
     let id = 0;
     function write() {
       let ok = true;
