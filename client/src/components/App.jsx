@@ -5,6 +5,7 @@ import Description from './Description';
 import Thumbnails from './Thumbnails';
 import Checklist from './Checklist';
 import Modal from './Modal';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
@@ -29,28 +30,36 @@ class App extends Component {
 
   componentDidMount() {
     this.getProductData();
-    this.getReviewData();
+    // this.getReviewData();
     this.getProductImages();
   }
 
   getProductData() {
     const { currentProduct } = this.state;
-    fetch('http://52.26.193.201:3000/products/list')
+    // fetch('http://52.26.193.201:3000/products/list')
+    fetch(`/products/${currentProduct}`)
       .then((res) => res.json())
-      .then((data) => this.setState({ products: data[currentProduct - 1] }));
+      .then((data) => {
+        this.setState({
+          products: data.results[0],
+          starPercentage: data.results[0].rating * 10,
+          averageRating: data.results[0].rating / 2,
+        });
+      });
   }
 
-  getReviewData() {
-    const { currentProduct } = this.state;
-    fetch(`http://52.26.193.201:3000/reviews/${currentProduct}/list`)
-      .then((res) => res.json())
-      .then((data) => this.setState({ reviews: data.results }))
-      .then(() => this.averageStarRating());
-  }
+  // getReviewData() {
+  //   const { currentProduct } = this.state;
+  //   fetch(`reviews/${currentProduct}`)
+  //     .then((res) => res.json())
+  //     .then((data) => this.setState({ reviews: data.results }))
+  //     .then(() => this.averageStarRating());
+  // }
 
   getProductImages() {
     const { currentStyle, currentProduct } = this.state;
-    fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
+    // fetch(`http://52.26.193.201:3000/products/${currentProduct}/styles/`)
+    fetch(`/products/${currentProduct}/styles/`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -75,16 +84,16 @@ class App extends Component {
   averageStarRating() {
     const { reviews } = this.state;
     let ratingSum = 0;
-    reviews.map((review) => {
+    reviews.forEach((review) => {
       ratingSum += review.rating;
     });
     if (ratingSum) {
       const averageRating = ratingSum / reviews.length;
       const starPercentage = (averageRating / 5) * 100;
-      this.setState({
-        starPercentage,
-        averageRating,
-      });
+      // this.setState({
+      //   starPercentage,
+      //   averageRating,
+      // });
     }
   }
 

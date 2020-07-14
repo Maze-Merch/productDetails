@@ -17,7 +17,7 @@
     In a different terminal, connect to the Cassandra database with `cqlsh`
 
 #### Dependencies to connect to Cassandra
-  1. Install the node.js client library for Cassandra `npm install cassandra-driver` [npm doc](https://www.npmjs.com/package/cassandra-driver)
+  1. Install the node.js client library for Cassandra (DataStax driver) `npm install cassandra-driver` [npm doc](https://www.npmjs.com/package/cassandra-driver)
   2. To create the CSV file writing ability `npm install csv-write-stream` [npm doc](https://www.npmjs.com/package/csv-write-stream)
   3. Upped the speed for seeding:
   `node --max-old-space-size=6144 productsDBSeed.csv`

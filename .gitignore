@@ -104,4 +104,7 @@ dist
 .tern-port
 
 productsDBSeed.csv
+photosDBSeed.csv
+skusDBSeed.csv
+stylesDBSeed.csv
 mockServerForSchema-less.js
