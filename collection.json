@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "fbf00e23-8199-4846-af35-fd1eda8a0655",
+		"name": "MAIZE poostgres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/reviews?productID={{randomNumber}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"reviews"
+					],
+					"query": [
+						{
+							"key": "productID",
+							"value": "{{randomNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/products?productID={{randomNumber}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "productID",
+							"value": "{{randomNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET style",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "74c70a47-e695-42ea-8f00-78a7ec7a0dca",
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set(RandomNumber, _.random(1,10000000));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a09257b1-7d62-4d38-b6f8-735feb55ae59",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});",
+					"",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7072af13-f487-46c1-b477-b03512f58c36",
+			"key": "randomNumber",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}

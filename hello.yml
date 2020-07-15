@@ -1,0 +1,49 @@
+config:
+  target: 'http://localhost:3001'
+  phases:
+  - duration: 30
+    arrivalRate: 4
+    name: "Warm up the application"
+  - duration: 10
+    arrivalRate: 15
+    name: "High load"
+  - duration: 30
+    arrivalRate: 4
+    name: "Normal load"
+  - duration: 5
+    arrivalRate: 20
+    name: "Quick spike"
+  - duration: 20
+    arrivalRate: 3
+    name: "Cool down"
+  processor: "./artillery_functions.js"
+scenarios:
+  - flow:
+    - get:
+        url: "/"
+    - get:
+        url: "/bundle.js"
+    - loop:
+      - function: "getRandomIdFirstHalf"
+      - get:
+          url: '/products/styles?productID={{ id }}'
+      - get:
+          url: '/reviews/?productID={{ id }}'
+      - get:
+          url: '/products?productID={{ id }}'
+      - function: "getRandomIdSecondHalf"
+      - get:
+          url: '/products/styles?productID={{ id }}'
+      - get:
+          url: '/reviews/?productID={{ id }}'
+      - get:
+          url: '/products?productID={{ id }}'
+      - function: "getRandomIdTenPercent"
+      - get:
+          url: '/products/styles?productID={{ id }}'
+      - get:
+          url: '/reviews/?productID={{ id }}'
+      - get:
+          url: '/products?productID={{ id }}'
+      count: 33
+
