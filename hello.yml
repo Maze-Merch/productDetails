@@ -2,10 +2,10 @@ config:
   target: 'http://localhost:3001'
   phases:
   - duration: 30
-    arrivalRate: 4
+    arrivalRate: 6
     name: "Warm up the application"
   - duration: 10
-    arrivalRate: 12
+    arrivalRate: 16
     name: "High load"
   - duration: 30
     arrivalRate: 5
@@ -45,5 +45,5 @@ scenarios:
           url: '/reviews/?productID={{ id }}'
       - get:
           url: '/products?productID={{ id }}'
-      count: 35
+      count: 22
 
