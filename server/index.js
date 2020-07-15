@@ -3,13 +3,16 @@ const parser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const db = require('./db');
+const Router = require('./router/index');
 
 const app = express();
 const port = 3001;
+app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(parser.json());
 app.use(cors());
-app.use(express.static('public'));
+
+app.use('/products', Router);
 
 app.get('/products', async (req, res) => {
   const { productID } = req.query;
