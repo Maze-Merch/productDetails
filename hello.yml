@@ -5,13 +5,13 @@ config:
     arrivalRate: 6
     name: "Warm up the application"
   - duration: 10
-    arrivalRate: 16
+    arrivalRate: 15
     name: "High load"
   - duration: 30
     arrivalRate: 5
     name: "Normal load"
   - duration: 5
-    arrivalRate: 15
+    arrivalRate: 18
     name: "Quick spike"
   - duration: 20
     arrivalRate: 3
@@ -46,4 +46,3 @@ scenarios:
       - get:
           url: '/products?productID={{ id }}'
       count: 22
-

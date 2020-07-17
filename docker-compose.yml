@@ -1,21 +1,27 @@
-# version: '2'
-
-# services:
-#   productdetails:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     container_name: productdetails
-#     ports:
-#       - "8080:3001"
 
 version: '3'
 
 services:
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: p4j4m4sII!
+      POSTGRES_USER: postgres
+      POSTGRES_DB: product_details
+    networks:
+      - maize_net
+
   maze:
+    depends_on:
+      - 'postgres'
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: mazeapp
+    networks:
+      - maize_net
     ports:
-      - "3001:3001"
+      - '3001:3001'
+    stdin_open: true
+    tty: true
+networks:
+    maize_net:

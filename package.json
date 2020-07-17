@@ -27,6 +27,8 @@
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "debug": "^3.2.6",
+    "docker": "^1.0.0",
+    "docker-compose": "^0.23.5",
     "express": "^4.17.1",
     "express-promise-router": "^4.0.1",
     "fakergem": "^2.1.0",
