@@ -4,7 +4,7 @@ Maze Mercantile is an e-commerce site specializing in urban apparel with a focus
 
 ![Mobile Image](public/media/mobile.jpg)
 
-This app was built from scratch and bundled with Webpack. It simulates a single page experience (the product detail page) in a service oriented style where each service (of 4) is responsible for delivering the content+data for one module on the page in a microservices architecture.
+This app was built from scratch and bundled with Webpack and Babel. It simulates a single page experience (the product detail page) in a service oriented style where each service (of 4) is responsible for delivering the content+data for one module on the page in a microservices architecture.
 
 ## My Contribution to this Project
 
