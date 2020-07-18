@@ -1,3 +1,50 @@
+# Maze Mercantile
+> About
+Maze Mercantile is an e-commerce site specializing in urban apparel with a focus on an appealing presentation and intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
+
+![Intro Image](public/media/mobile.jpg)
+
+The app provides ...
+
+## My Contribution to this Project
+
+
+## Related Projects
+- https://github.com/Maze-Merch/maze-proxy-server
+- https://github.com/Maze-Merch/related-products
+- https://github.com/Maze-Merch/reviewsService
+- https://github.com/Maze-Merch/reviewsService
+
+## Getting Started
+Prerequisites: NodeJS and Xcode
+
+Clone the Github repository:
+```
+$ git clone https://github.com/Maze-Merch/productDetails.git
+```
+
+cd into the directory 'productDetails' and run the following commands:
+
+```
+$ npm install
+$ npm start
+```
+Now, navigate to http://localhost:3001 in your browser
+
+# Business Requirements Image
+![](public/media/mockup.jpg)
+
+
+## Built With
+* React
+* Node.js
+* Express
+* Bootstrap
+* HTML5
+* CSS3
+* JavaScript
+
+
 # proxy-server
 To run all 4 services, RUN: npm start --> this script runs: npm run concurrently and nodemon to cd into each service and run the 'start' script within that service. If this command fails anywhere, it will kill all the other commands in this script.
 
