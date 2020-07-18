@@ -15,5 +15,8 @@
     "mazeapp",
     "productdetails",
     "skus"
+  ],
+  "cSpell.ignoreWords": [
+    "microservices"
   ]
 }
