@@ -34,7 +34,10 @@ This app was built from scratch and bundled with Webpack and Babel. It simulates
 
 
 ## Getting Started
-Prerequisites: NodeJS and Xcode
+Prerequisites: 
+ * NodeJS v12.16.0
+ * NPM v6.14.6
+ * Xcode 11.6
 
 Clone the Github repository:
 ```
