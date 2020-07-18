@@ -2,7 +2,7 @@
 > About
 Maze Mercantile is an e-commerce site specializing in urban apparel with a focus on an appealing presentation and intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
 
-![Intro Image](public/media/mobile.jpg)
+![Mobile Image](public/media/mobile.jpg)
 
 The app provides ...
 
@@ -14,6 +14,8 @@ The app provides ...
 - https://github.com/Maze-Merch/related-products
 - https://github.com/Maze-Merch/reviewsService
 - https://github.com/Maze-Merch/reviewsService
+
+![Desktop Image](public/media/desktop.jpg)
 
 ## Getting Started
 Prerequisites: NodeJS and Xcode
@@ -32,7 +34,7 @@ $ npm start
 Now, navigate to http://localhost:3001 in your browser
 
 # Business Requirements Image
-![](public/media/mockup.jpg)
+![Mockup](public/media/mockup.jpg)
 
 
 ## Built With
