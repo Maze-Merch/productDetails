@@ -1,10 +1,9 @@
 # Maze Mercantile
-> About
-Maze Mercantile is an e-commerce site specializing in urban apparel with a focus on an appealing presentation and intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
+> Maze Mercantile is a Mobile-First apparel shopping app with a focus on intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
 
 ![Mobile Image](public/media/mobile.jpg)
 
-This app was built from scratch and bundled with Webpack and Babel. It simulates a single page experience (the product detail page) in a service oriented style where each service (of 4) is responsible for delivering the content+data for one module on the page in a microservices architecture.
+This app was built from scratch and bundled with Webpack and Babel. It is the Product-Overview service of a single page app in a service oriented / microservices architecture.
 
 ![Desktop Image](public/media/desktop.jpg)
 
