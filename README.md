@@ -101,7 +101,7 @@ To run tests, RUN:
 ```
 $ npm run test
 ```
- --> this script will tuns: jest
+ --> this script runs: jest
 
 To run esLint, RUN:
 ```
