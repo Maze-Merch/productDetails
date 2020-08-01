@@ -49,6 +49,8 @@ $ npm install
 $ npm start
 ```
 
+Now, navigate to http://localhost:3001 in your browser
+
 ### proxy-server
 To efficiently update all services to their current master branch version, cd to root directory and RUN:
 ```
