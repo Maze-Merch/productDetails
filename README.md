@@ -11,7 +11,7 @@ This app was built from scratch and bundled with Webpack and Babel. It is the Pr
 - https://github.com/Maze-Merch/maze-proxy-server
 - https://github.com/Maze-Merch/related-products
 - https://github.com/Maze-Merch/reviewsService
-- https://github.com/Maze-Merch/reviewsService
+- https://github.com/Maze-Merch/QnA
 
 
 # Business Requirements Mockup
