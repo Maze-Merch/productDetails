@@ -36,6 +36,13 @@
   color: #f8ce0b;
 }
 
+.carousel-item {
+  .w-100 {
+    height: 40vh;
+    object-fit: contain;
+  }
+}
+
 footer img {
   height: 200px;
 }
