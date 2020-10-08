@@ -8,7 +8,7 @@ const Thumbnails = ({ activeResult }) => (
           key={photo.url}
           className="row mt-2"
         >
-          {i < 7 ? (
+          {i < 4 ? (
             <section className="img-thumbnail my-auto flex-wrap">
               <img
                 width="100res"
