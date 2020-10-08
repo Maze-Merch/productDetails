@@ -6,6 +6,14 @@ import App from '../components/App';
 
 configure({ adapter: new Adapter() });
 
+const app = shallow(<App />, { disableLifecycleMethods: true });
+
+it('initializes the `state` with an empty list of products', () => {
+  expect(app.state().products).toEqual([]);
+});
+
+it
+
 describe('<App />', () => {
   beforeAll(() => {
     global.fetch = jest.fn();
