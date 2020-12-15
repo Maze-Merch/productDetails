@@ -60,8 +60,6 @@ const ProductDetails = ({
           >
             <div
               className="col-sm"
-              // onClick={(e) => handleChange(e, style)}
-              // role="button"
             >
               <img
                 imgkey={style.style_id}
@@ -128,7 +126,6 @@ const ProductDetails = ({
               width="1em"
               height="1em"
               viewBox="0 0 16 16"
-              // onClick={toggleStar(this)}
               className="bi bi-star"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +143,6 @@ const ProductDetails = ({
 );
 
 ProductDetails.propTypes = {
-  // handleChange: PropTypes.function.isRequired,
   results: PropTypes.arrayOf(PropTypes.shape({
     style_id: PropTypes.number,
     name: PropTypes.string,
@@ -162,13 +158,6 @@ ProductDetails.propTypes = {
       XXL: PropTypes.number,
     }),
   })).isRequired,
-  // reviews: PropTypes.array.isRequired,
-  // products: PropTypes.shape({
-  //   category: PropTypes.string,
-  //   description: PropTypes.string,
-  //   slogan: PropTypes.string,
-  //   name: PropTypes.string,
-  // }).isRequired,
 };
 
 export default ProductDetails;

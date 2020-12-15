@@ -12,8 +12,6 @@ it('initializes the `state` with an empty list of products', () => {
   expect(app.state().products).toEqual([]);
 });
 
-it
-
 describe('<App />', () => {
   beforeAll(() => {
     global.fetch = jest.fn();
@@ -24,10 +22,6 @@ describe('<App />', () => {
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
   });
-
-  // beforeEach(() => {
-  //   wrapper = shallow(<App />);
-  // });
 
   afterEach(() => {
     wrapper.unmount();
@@ -48,8 +42,4 @@ describe('<App />', () => {
   it('has a MainCarousel component', () => {
     expect(wrapper.find('MainCarousel')).toBeDefined;
   });
-
-  // test('Should have a title', () => {
-  //   expect(wrapper.find('#title').text()).toBe('maze merchantile');
-  // });
 });
