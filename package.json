@@ -18,14 +18,22 @@
     }
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-preset-airbnb": "^5.0.0",
+    "bootstrap": "^4.5.0",
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "debug": "^3.2.6",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "sass": "^1.26.8"
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.26.9"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

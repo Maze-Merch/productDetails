@@ -11,6 +11,16 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   "javascript.validate.enable": false,
   "cSpell.words": [
+<<<<<<< HEAD
     "nothin"
+=======
+    "imgkey",
+    "mazeapp",
+    "productdetails",
+    "skus"
+  ],
+  "cSpell.ignoreWords": [
+    "microservices"
+>>>>>>> 72a13dd9b4e80b267a040251dc73d32b6fa1de47
   ]
 }
