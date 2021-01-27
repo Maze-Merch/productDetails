@@ -18,5 +18,6 @@
   ],
   "cSpell.ignoreWords": [
     "microservices"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

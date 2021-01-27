@@ -1,13 +1,3 @@
-// html {
-  //   font-size: 62.5%;
-  //   box-sizing: border-box;
-  // }
-  // body {
-    //   font: 1.6rem Helvetica;
-    //   height: 100vh;
-    //   margin: 0;
-    // }
-
 .stars-outer {
   position: relative;
   display: inline-block;
@@ -43,37 +33,16 @@
   }
 }
 
+.carousel-control-next-icon {
+  // background-color: radial-gradient(circle 28px, rgba(31, 31, 31, 0.116), #26294463);
+  // background-color: grey;
+}
+
+.carousel-control-prev-icon {
+  // background-color: radial-gradient(circle 28px, rgba(31, 31, 31, 0.116), #26294463);
+  // background-color: grey;
+}
+
 footer img {
   height: 200px;
 }
-
-// .carousel-inner {
-//   // height: 45vh;
-//   width: 50vh;
-//   height: 50vh;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// .carousel img {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   min-width: 100%;
-//   height: 500px;
-//   max-width: none;
-// }
-// .carousel-inner {
-//   height: 100px;
-//   width: 100px;
-//   object-fit: contain;
-// }
-// .carousel {
-//   width:640px;
-//   height:360px;
-// }
-// .thumb {
-//   scroll-snap-type: y mandatory;
-// }
-// .img-thumbnail {
-//   scroll-snap-align: start;
-// }
