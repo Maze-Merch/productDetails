@@ -21,6 +21,11 @@
   ],
   "cSpell.ignoreWords": [
     "microservices"
+<<<<<<< HEAD
 >>>>>>> 72a13dd9b4e80b267a040251dc73d32b6fa1de47
   ]
+=======
+  ],
+  "liveServer.settings.port": 5501
+>>>>>>> de3436e553c77c1b6a9689001e2f95b11d0efb16
 }

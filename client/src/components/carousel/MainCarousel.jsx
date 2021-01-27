@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MainCarousel = ({ photos, selectModal }) => (
-  // console.log('mc props', photos);
 
   <div
     id="mainCarousel"
@@ -21,7 +20,6 @@ const MainCarousel = ({ photos, selectModal }) => (
               className="d-block w-100"
               src={photo.url}
               alt="slide"
-              // onClick={selectModal(photo.url)}
             />
           </div>
         ))}

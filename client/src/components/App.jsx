@@ -4,7 +4,6 @@ import MainCarousel from './carousel/MainCarousel';
 import Description from './Description';
 import Thumbnails from './Thumbnails';
 import Checklist from './Checklist';
-import Modal from './Modal';
 
 class App extends Component {
   constructor() {
@@ -31,7 +30,6 @@ class App extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    // this.toggleStar = this.toggleStar.bind(this);
   }
 
   componentDidMount() {
@@ -66,10 +64,6 @@ class App extends Component {
         });
       });
   }
-
-  // selectModal(info) {
-  //   this.setState({ modal: !this.state.modal });
-  // }
 
   selectModal(info = '') {
     const { modal } = this.state;
@@ -117,16 +111,6 @@ class App extends Component {
       modal,
     } = this.state;
 
-    // console.log(
-    //   'results',
-    //   results,
-    //   'app activeResult',
-    //   activeResult,
-    //   'products',
-    //   products,
-    //   'reviews',
-    //   reviews,
-    // );
     return (
       <div className="container-fluid mb-5">
         <div className="jumbotron jumbotron-fluid">
@@ -171,13 +155,7 @@ class App extends Component {
           </div>
           <div className="d-none d-xl-block col-xl-2" />
         </div>
-        <div className="model">
-          {/* <Modal
-            displayModal={modal}
-            closeModal={this.selectModal}
-            modalInfo={modalInfo}
-          /> */}
-        </div>
+        <div className="model" />
       </div>
     );
   }

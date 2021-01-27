@@ -1,10 +1,9 @@
 # Maze Mercantile
-> About
-Maze Mercantile is an e-commerce site specializing in urban apparel with a focus on an appealing presentation and intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
+> Maze Mercantile is a Mobile-First apparel shopping app with a focus on intuitive user interaction / experience. This repo highlights my abilities in Front-end development.
 
 ![Mobile Image](public/media/mobile.jpg)
 
-This app was built from scratch and bundled with Webpack and Babel. It simulates a single page experience (the product detail page) in a service oriented style where each service (of 4) is responsible for delivering the content+data for one module on the page in a microservices architecture.
+This app was built from scratch and bundled with Webpack and Babel. It is the Product-Overview service of a single page app in a service oriented / microservices architecture.
 
 ![Desktop Image](public/media/desktop.jpg)
 
@@ -12,7 +11,7 @@ This app was built from scratch and bundled with Webpack and Babel. It simulates
 - https://github.com/Maze-Merch/maze-proxy-server
 - https://github.com/Maze-Merch/related-products
 - https://github.com/Maze-Merch/reviewsService
-- https://github.com/Maze-Merch/reviewsService
+- https://github.com/Maze-Merch/QnA
 
 
 # Business Requirements Mockup
@@ -49,18 +48,11 @@ $ npm install
 $ npm start
 ```
 
-### proxy-server
-To efficiently update all services to their current master branch version, cd to root directory and RUN:
-```
-$ npm run updateAll
-```
- --> this script will run 4 scripts within the proxy server called updateServiceOne, updateServiceTwo, updateServiceThree, and updateServiceFour. Each of these scripts will cd into 1 of the 4 services and RUN:
- ```
-$ git checkout && git pull
-```
- --> these scripts will checkout the master branch of the service and pull the most recent commit.
+Now, navigate to http://localhost:3001 in your browser
 
-To run all 4 services, ensure you are in the root directory and RUN:
+### proxy-server
+
+To run all 4 services, clone this repo: https://github.com/Maze-Merch/maze-proxy-server.git - And install dependencies. Then ensure you are in the root directory and RUN:
 ```
 $ npm start
 ```
@@ -74,35 +66,4 @@ To turn off the servers for all 4 services, ENTER: control+c --> for a mac
 
 All css files have been combined on the proxy server under the dist folder inside the styles.css file.
 
-the index.html for the proxy server exists in the dist folder of the proxy server. In the body of this file is a div for each of the 4 services which line up with what each service is expecting in their ReactDOM.render. Also, in this file exists the header and footer attributes.
-
-### product-details
-To run this service: cd into productDetails and RUN:
-```
-$ npm start
-```
- --> this script runs:
- ```
-$ npm run concurrently
-```
- --> this script runs:
- ```
-$ npm run build
-```
- as well as:
-```
-$ nodemon server/index.js
-```
- --> the build script runs: npm run webpack --watch --mode development.
-
-To run tests, RUN:
-```
-$ npm run test
-```
- --> this script will tuns: jest
-
-To run esLint, RUN:
-```
-$ npm run lint
-```
- --> this script runs: ./node_modules/.bin/eslint
+The index.html for the proxy server exists in the dist folder of the proxy server. In the body of this file is a div for each of the 4 services which line up with what each service is expecting in their ReactDOM.render. Also, in this file exists the header and footer attributes.
